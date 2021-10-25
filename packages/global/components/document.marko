@@ -1,5 +1,4 @@
 import { getAsObject } from "@parameter1/base-cms-object-path";
-import omedaConfig from "../config/omeda";
 
 $ const {
   site,
@@ -22,7 +21,6 @@ $ const {
       on="load"
       request-frame=true
       target-tag="body"
-      identity-query-builder=`var id = query.oly_enc_id; if (id) { return 'omeda.${omedaConfig.brandKey}.customer*' + id + '~encoded'; };`;
     />
 
     <!-- init gam -->
@@ -44,14 +42,6 @@ $ const {
     <marko-web-native-x-init
       uri=nativeX.getUri()
       enabled=nativeX.isEnabled()
-      on="load"
-      request-frame=true
-      target-tag="body"
-    />
-
-    <!-- init omeda olytics -->
-    <marko-web-omeda-olytics-init
-      oid="35d5f88101eb422a9e06c942ed6116a3"
       on="load"
       request-frame=true
       target-tag="body"
@@ -89,6 +79,5 @@ $ const {
   <@below-wrapper>
     <marko-web-deferred-script-loader-load />
     <global-recaptcha />
-    <marko-web-browser-component name="OmedaRapidIdentityX" />
   </@below-wrapper>
 </marko-web-document>
