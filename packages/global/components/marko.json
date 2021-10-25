@@ -1,0 +1,76 @@
+{
+  "taglib-imports": [
+    "./blocks/marko.json",
+    "./client-side-blocks/marko.json",
+    "./directory-facets/marko.json",
+    "./flows/marko.json",
+    "./gam/marko.json",
+    "./identity-x/marko.json",
+    "./layouts/marko.json",
+    "./magazine/marko.json",
+    "./native-x/marko.json",
+    "./nodes/marko.json",
+    "./page/marko.json",
+    "./search/marko.json"
+  ],
+  "<global-client-side-block-loader>": {
+    "template": "./client-side-block-loader.marko"
+  },
+  "<global-content-page-breadcrumbs>": {
+    "template": "./content-page-breadcrumbs.marko"
+  },
+  "<global-image-slider>": {
+    "template": "./image-slider.marko"
+  },
+  "<global-sponsored-label-logo>": {
+    "template": "./sponsored-label-logo.marko"
+  },
+  "<global-sponsored-section-logo>": {
+    "template": "./sponsored-section-logo.marko"
+  },
+  "<global-sponsored-section-name-logo>": {
+    "template": "./sponsored-section-name-logo.marko"
+  },
+  "<global-document>": {
+    "template": "./document.marko",
+    "<head>": {},
+    "<above-container>": {},
+    "<container>": {
+      "<above-page>": {},
+      "<page>": {},
+      "<below-page>": {}
+    },
+    "<below-container>": {},
+    "<foot>": {}
+  },
+  "<global-menu-toggle-button>": {
+    "template": "./menu-toggle-button.marko"
+  },
+  "<global-pagination-controls>": {
+    "template": "./pagination-controls.marko"
+  },
+  "<global-recaptcha>": {
+    "template": "./recaptcha.marko"
+  },
+  "<global-site-menu>": {
+    "template": "./site-menu/index.marko"
+  },
+  "<global-site-header>": {
+    "template": "./site-header.marko"
+  },
+  "<global-site-header-2>": {
+    "template": "./site-header-2.marko"
+  },
+  "<global-site-newsletter-menu>": {
+    "template": "./site-newsletter-menu.marko"
+  },
+  "<global-site-footer>": {
+    "template": "./site-footer.marko"
+  },
+  "<global-social-follow>": {
+    "template": "./social-follow.marko"
+  },
+  "<global-query-total-count>": {
+    "template": "./query-total-count.marko"
+  }
+}

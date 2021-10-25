@@ -1,0 +1,34 @@
+import { buildImgixUrl } from "@parameter1/base-cms-image";
+import recaptcha from "../../config/recaptcha";
+
+$ const blockName = "newsletter-signup-banner";
+
+$ const { config, site } = out.global;
+$ const {
+  name,
+  description,
+  imagePath,
+  defaultNewsletter,
+  newsletters,
+  demographic,
+} = site.getAsObject("newsletter.signupBanner");
+
+$ const imageSrc = imagePath ? buildImgixUrl(`https://${config.website("imageHost")}/files/base/randallreilly/all/image/${imagePath}`, { w: 120, auto: "format,compress&q=70" }) : null;
+$ const imageSrcset = imageSrc ? `${imageSrc}&dpr=2 2x` : null;
+
+<if(name && description)>
+  <marko-web-browser-component
+    name="GlobalInlineNewsletterForm"
+    props={
+      siteName: config.website("name"),
+      name,
+      description,
+      defaultNewsletter,
+      newsletters,
+      demographic,
+      imageSrc,
+      imageSrcset,
+      recaptchaSiteKey: recaptcha.siteKey,
+    }
+  />
+</if>

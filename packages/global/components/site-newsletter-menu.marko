@@ -1,0 +1,38 @@
+import { buildImgixUrl } from "@parameter1/base-cms-image";
+import { getAsObject } from "@parameter1/base-cms-object-path";
+import recaptcha from "../config/recaptcha";
+
+$ const { site, config } = out.global;
+$ const {
+  name,
+  description,
+  imagePath,
+  defaultNewsletter,
+  newsletters,
+  demographic,
+} = site.getAsObject("newsletter.pushdown");
+
+
+$ const { hasCookie, fromEmail } = getAsObject(out.global, "newsletterState");
+$ const initiallyExpanded = (!hasCookie && !fromEmail) ? true : false;
+$ const imageSrc = imagePath ? buildImgixUrl(`https://${config.website("imageHost")}/files/base/randallreilly/all/image/${imagePath}`, { w: 280, auto: "format,compress&q=70" }) : null;
+$ const imageSrcset = imageSrc ? `${imageSrc}&dpr=2 2x` : null;
+
+<if(name && description)>
+  <marko-web-browser-component
+    name="GlobalSiteNewsletterMenu"
+    ssr=true
+    props={
+      siteName: config.website("name"),
+      name,
+      description,
+      defaultNewsletter,
+      newsletters,
+      demographic,
+      imageSrc,
+      imageSrcset,
+      initiallyExpanded,
+      recaptchaSiteKey: recaptcha.siteKey,
+    }
+  />
+</if>
