@@ -1,0 +1,166 @@
+import { getAsArray } from "@parameter1/base-cms-object-path";
+
+import microQueryFragment from "../../graphql/fragments/directory-section-micro-feed-block";
+import queryFragment from "../../graphql/fragments/directory-section-feed-block";
+
+$ const { id, alias, name, pageNode } = input;
+$ const { $markoWebSearch: search } = out.global;
+$ const sortField = (search.input.searchQuery) ? undefined : "NAME";
+$ const sortOrder = (search.input.searchQuery) ? undefined : "ASC";
+$ const currentPage = search.getCurrentPage();
+
+<global-website-section-default-layout
+  id=id
+  alias=alias
+  name=name
+  page-node=pageNode
+>
+  <@section|{ aliases }| modifiers=["first"]>
+    <global-leaderboard-ad-block
+      position="section_page"
+      aliases=aliases
+      modifiers=["inter-block"]
+    />
+  </@section>
+  <@section|{ blockName, section }|>
+    <default-theme-breadcrumbs modifiers=["directory", "content-page"]>
+      $ const children = getAsArray(section, "hierarchy");
+      <for|child| of=children>
+        <if(child.alias !== section.alias)>
+          <@item>
+            $ const link = search.input.searchQuery ? `/${child.alias}?searchQuery=${search.input.searchQuery}` : `/${child.alias}`;
+            <marko-web-link title=child.name href=link>${child.name}</marko-web-link>
+          </@item>
+        </if>
+      </for>
+    </default-theme-breadcrumbs>
+    <marko-web-website-section-name|{ value }| tag="h1" block-name=blockName obj=section>
+      <if(currentPage > 1)>${value}: Page ${currentPage}</if>
+      <else>${value}</else>
+    </marko-web-website-section-name>
+    <marko-web-website-section-description block-name=blockName obj=section />
+  </@section>
+
+  <@section|{ blockName, section }|>
+    <div class="row">
+      <div class="col-lg-3">
+        <marko-web-search-filter-container modifiers=["sticky"] title="Category Fileters">
+          <@title value="Category Filters" />
+          $ const facetAlias = section.children.edges.length ? alias : section.parent.alias;
+          <global-directory-facet-block primary-alias=facetAlias search-query=search.input.searchQuery active-id=id />
+        </marko-web-search-filter-container>
+      </div>
+
+      <div class="col-lg-9">
+        <marko-web-search-form>
+          <@block class="search-form" />
+          <div class="form-group search-form__group">
+            <label for="search-phrase" class="sr-only">Enter search phrase</label>
+            <marko-web-search-input
+              id="search-phrase"
+              class="form-control"
+              placeholder="Enter search phrase..."
+            />
+          </div>
+          <button type="submit" class="btn btn-primary search-form__btn">
+            Search
+          </button>
+        </marko-web-search-form>
+        <marko-web-search-query|{ nodes, totalCount }|
+          limit=search.getLimit()
+          skip=search.getSkip()
+          sortField=sortField
+          sortOrder=sortOrder
+          content-types=search.input.contentTypes
+          search-query=search.input.searchQuery
+          assigned-to-website-section-ids=[section.id]
+          query-fragment=queryFragment
+        >
+          <marko-web-page-wrapper modifiers=["no-padding-x"]>
+            <@section modifiers=["search-results"]>
+              <div>${new Intl.NumberFormat().format(totalCount)} Results</div>
+              <marko-web-search-selected-filters />
+            </@section>
+            <if(currentPage === 1 & !search.input.searchQuery)>
+              <@section  modifiers=["featured-listings"]>
+                $ const featuredParams = {
+                  limit: 25,
+                  sectionAlias: alias,
+                  optionName: ["Pinned", "Standard"],
+                  sectionBubbling: false,
+                  sort: { field: 'name', order: 'asc'},
+                  queryFragment,
+
+                };
+                $ const microParams = {
+                  ...featuredParams,
+                  includeLabels: "Buyers Guide Microsite",
+                  queryFragment: microQueryFragment,
+                };
+                $ const adParams = {
+                  ...featuredParams,
+                  includeLabels: "Buyers Guide Advertiser",
+                  excludeLabels: "Buyers Guide Microsite",
+                };
+                <marko-web-query|{ nodes }| name="website-scheduled-content" params=microParams>
+                  <marko-web-node-list
+                    inner-justified=true
+                    flush-x=false
+                    flush-y=false
+                    modifiers=["directory-section-feed", "featured-listings"]
+                  >
+                    <@nodes nodes=nodes>
+                      <@slot|{ node }|>
+                        <global-directory-section-feed-content-node node=node with-dates=false is-featured=true />
+                      </@slot>
+                    </@nodes>
+                  </marko-web-node-list>
+                </marko-web-query>
+                <marko-web-query|{ nodes }| name="website-scheduled-content" params=adParams>
+                  <marko-web-node-list
+                    inner-justified=true
+                    flush-x=false
+                    flush-y=false
+                    modifiers=["directory-section-feed", "featured-listings"]
+                  >
+                    <@nodes nodes=nodes>
+                      <@slot|{ node }|>
+                        <global-directory-section-feed-content-node node=node with-dates=false is-featured=true />
+                      </@slot>
+                    </@nodes>
+                  </marko-web-node-list>
+                </marko-web-query>
+              </@section>
+            </if>
+            <if(nodes.length)>
+              <@section>
+                <marko-web-node-list
+                  inner-justified=true
+                  flush-x=true
+                  flush-y=false
+                  modifiers=["directory-section-feed"]
+                >
+                  <@nodes nodes=nodes>
+                    <@slot|{ node }|>
+                      <global-directory-section-feed-content-node node=node with-teaser=false display-image=false with-dates=false />
+                    </@slot>
+                  </@nodes>
+                </marko-web-node-list>
+                <marko-web-search-pagination-controls total-count=totalCount>
+                  <@link class="btn btn-primary" />
+                </marko-web-search-pagination-controls>
+              </@section>
+            </if>
+          </marko-web-page-wrapper>
+        </marko-web-search-query>
+      </div>
+    </div>
+  </@section>
+  <@section>
+    <global-gam-define-display-ad
+      name="rotation"
+      position="static_page"
+      modifiers=["inter-block"]
+    />
+  </@section>
+</global-website-section-default-layout>
