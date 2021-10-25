@@ -1,0 +1,12 @@
+$theme-site-header-breakpoints: (
+  hide-primary: 100000px, // effectively always hide the primary nav
+  hide-secondary: 780px,
+  small-logo: 980px,
+  small-text-primary: 0,
+  small-text-secondary: 980px
+);
+
+// Colors
+$primary: #103a57;
+
+@import "../../node_modules/@rogue-monkey-media/package-global/scss/core";
