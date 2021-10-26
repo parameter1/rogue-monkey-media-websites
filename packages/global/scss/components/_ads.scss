@@ -152,13 +152,6 @@
     }
   }
 
-  &--template-billboard {
-    min-height: 210px + $container-height;
-    @media (min-width: 780px) {
-      min-height: 596px + $container-height;
-    }
-  }
-
   &--template-rotation,
   &--template-inline-content-desktop,
   &--template-inline-content-mobile {
