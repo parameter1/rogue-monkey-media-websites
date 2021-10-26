@@ -14,59 +14,11 @@ $ const { site } = out.global;
     <meta name="google-site-verification" content="NOT_SET" />
   </@head> -->
 
-  <@section|{ aliases }| modifiers=["break-container"]>
-    <global-opinion-block alias="news" />
-  </@section>
-
   <@section>
-    <global-section-list-deck-block aliases=["retail", "service", "builder"] />
-  </@section>
-
-  <@section|{ aliases }|>
-    $ const publicationIds = site.get("publicationIds");
-    <if(publicationIds.length)>
-      <global-magazine-issues-block publication-id=publicationIds[0] />
-    </if>
-    <else>
-      <global-gam-define-display-ad
-        name="rotation"
-        position="home_page"
-        aliases=aliases
-        modifiers=["inter-block"]
-      />
-    </else>
-  </@section>
-
-  <@section>
-    <global-partners-in-business-block alias="homeowners-diy" />
-  </@section>
-
-  <@section>
-    <global-gear-block alias="products" />
-  </@section>
-
-  <@section|{ aliases }|>
-    <global-gam-define-display-ad
-      name="rotation"
-      position="home_page"
-      aliases=aliases
-      modifiers=["inter-block"]
-    />
-  </@section>
-
-  <@section>
-    <site-promo-card-rotation-block />
+    <global-section-list-deck-block aliases=["utility-operations", "legislation", "technology"] />
   </@section>
 
   <@section>
     <global-client-side-most-popular-block />
   </@section>
-
-  <!-- <@section>
-    <global-reader-rigs-block alias="builder/pools" default-description="" />
-  </@section> -->
-
-  <!-- <@section>
-    <global-resource-library-block alias="resource-library" />
-  </@section> -->
 </global-website-section-home-layout>
