@@ -107,14 +107,14 @@ $ const tagline = site.get("tagline");
   <default-theme-site-footer-container block-name=blockName modifiers=["primary"]>
     <marko-web-element block-name=blockName name="inner-container">
 
-      $ const imageHost = config.website("imageHost");
+      <!-- $ const imageHost = config.website("imageHost");
       <marko-web-img
         alt="AB Media, Inc. Logo"
         src=`https://${imageHost}/files/base/abmedia/all/image/static/abmedia-red-white.png?w=200`
         srcset=`https://${imageHost}/files/base/abmedia/all/image/static/abmedia-red-white.png?w=400 2x`
         link={ href: "https://www.abmedia.biz", class: `${blockName}__corporate-link` }
         class=`${blockName}__corporate-logo`
-      />
+      /> -->
 
       $ const footerItems = site.getAsArray("navigation.footer.items");
       <default-theme-breadcrumbs modifiers=["site-footer"]>
