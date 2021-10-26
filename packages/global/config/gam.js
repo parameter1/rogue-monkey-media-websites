@@ -15,11 +15,11 @@ module.exports = ({
         [265, 149],
       ],
       sizeMapping: [
-        { viewport: [1070, 0], size: [970, 250] },
-        { viewport: [980, 0], size: [970, 250] },
-        { viewport: [750, 0], size: [300, 100] },
-        { viewport: [430, 0], size: [300, 100] },
-        { viewport: [300, 0], size: [300, 100] },
+        { viewport: [1070, 0], size: [970, 90] },
+        { viewport: [980, 0], size: [970, 90] },
+        { viewport: [750, 0], size: [300, 50] },
+        { viewport: [430, 0], size: [300, 50] },
+        { viewport: [300, 0], size: [300, 50] },
       ],
     })
     .setTemplate('RAIL', {
@@ -29,7 +29,7 @@ module.exports = ({
       size: [[970, 250], [970, 90], [728, 90]],
       sizeMapping: [
         { viewport: [980, 0], size: [[970, 250], [970, 90], [728, 90]] },
-        { viewport: [750, 0], size: [[728, 90], [300, 250]] },
+        { viewport: [750, 0], size: [[728, 90], [300, 100], [300, 50], [300, 250]] },
         { viewport: [300, 0], size: [[300, 50], [300, 100], [300, 250]] },
       ],
     })
