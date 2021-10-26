@@ -21,15 +21,15 @@ module.exports = {
   },
   logos: {
     navbar: {
-      src: 'https://p1-cms-assets-ascend.imgix.net/files/base/rogue-monkey-media/all/image/static/nrwa/logo.svg?h=45&auto=format,compress&q=70',
+      src: 'https://p1-cms-assets.imgix.net/files/base/roguemonkeymedia/all/image/static/nrwa/logo.svg?h=45&auto=format,compress&q=70',
       srcset: [
-        'https://p1-cms-assets-ascend.imgix.net/files/base/rogue-monkey-media/all/image/static/nrwa/logo.svg?h=45&auto=format,compress&q=70&dpr=2 2x',
+        'https://p1-cms-assets.imgix.net/files/base/roguemonkeymedia/all/image/static/nrwa/logo.svg?h=45&auto=format,compress&q=70&dpr=2 2x',
       ],
     },
     footer: {
-      src: 'https://p1-cms-assets-ascend.imgix.net/files/base/rogue-monkey-media/all/image/static/nrwa/logo.svg?h=60&auto=format,compress&q=70',
+      src: 'https://p1-cms-assets.imgix.net/files/base/roguemonkeymedia/all/image/static/nrwa/logo.svg?h=60&auto=format,compress&q=70',
       srcset: [
-        'https://p1-cms-assets-ascend.imgix.net/files/base/rogue-monkey-media/all/image/static/nrwa/logo.svg?h=60&auto=format,compress&q=70&dpr=2 2x',
+        'https://p1-cms-assets.imgix.net/files/base/roguemonkeymedia/all/image/static/nrwa/logo.svg?h=60&auto=format,compress&q=70&dpr=2 2x',
       ],
     },
   },
@@ -51,7 +51,7 @@ module.exports = {
     directSend: false,
     sendTo: 'NOT_SET@roguemonkeymedia.com',
     sendFrom: 'NOT_SET <noreply@parameter1.com>',
-    logo: 'https://p1-cms-assets-ascend.imgix.net/files/base/rogue-monkey-media/all/image/static/nrwa/logo.svg?h=60&auto=format,compress&q=70&bg=FFFFFF&pad=5',
+    logo: 'https://p1-cms-assets.imgix.net/files/base/roguemonkeymedia/all/image/static/nrwa/logo.svg?h=60&auto=format,compress&q=70&bg=FFFFFF&pad=5',
     bgColor: '#FFFFFF',
   },
 };
