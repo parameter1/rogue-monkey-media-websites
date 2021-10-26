@@ -36,7 +36,7 @@ jobs:
         namespace:
           - virgon-websites
         site:
-          - content.nrwa.com
+          - content.nrwa.org
     steps:
       - uses: actions/checkout@v2
       - name: Deploy to Kubernetes

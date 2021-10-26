@@ -72,7 +72,7 @@ services:
   nrwa:
     <<: *node
     <<: *site-cmd
-    working_dir: /root/sites/content.nrwa.com
+    working_dir: /root/sites/content.nrwa.org
     environment:
       <<: *env
       <<: *env-virgon

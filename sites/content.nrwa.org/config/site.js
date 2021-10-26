@@ -17,7 +17,7 @@ module.exports = {
   p1events: {
     tenant: 'rougemonkey',
     enabled: true,
-    cookieDomain: process.env.NODE_ENV === 'production' ? 'content.nrwa.com' : '',
+    cookieDomain: process.env.NODE_ENV === 'production' ? 'content.nrwa.org' : '',
   },
   logos: {
     navbar: {

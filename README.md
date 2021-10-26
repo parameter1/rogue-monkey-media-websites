@@ -57,7 +57,7 @@ export NODE_ENV="development"
 export IDENTITYX_GRAPHQL_URI="https://identity-x.parameter1.com/graphql"
 export BASE_BROWSE_GRAPHQL_URI="https://base-browse.virgon.base.parameter1.com/graphql"
 
-./node_modules/.bin/basecms-website dev sites/nrwa.com
+./node_modules/.bin/basecms-website dev sites/content.nrwa.org
 ```
 
 ```bat
@@ -77,7 +77,7 @@ set "NODE_ENV=development"
 set "IDENTITYX_GRAPHQL_URI=https://identity-x.parameter1.com/graphql"
 set "BASE_BROWSE_GRAPHQL_URI=https://base-browse.virgon.base.parameter1.com/graphql"
 
-./node_modules/.bin/basecms-website dev sites/nrwa.com
+./node_modules/.bin/basecms-website dev sites/content.nrwa.org
 ```
 
 ### Developing on Microsoft Windows

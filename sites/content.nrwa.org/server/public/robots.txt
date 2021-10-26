@@ -6,5 +6,5 @@ Disallow: /
 Disallow: /__
 Disallow: /print/content
 
-Sitemap: https://content.nrwa.com/sitemap.xml
-Sitemap: https://content.nrwa.com/sitemap-google-news.xml
+Sitemap: https://content.nrwa.org/sitemap.xml
+Sitemap: https://content.nrwa.org/sitemap-google-news.xml
