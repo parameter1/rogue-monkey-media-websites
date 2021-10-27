@@ -67,6 +67,9 @@
   "<global-site-footer>": {
     "template": "./site-footer.marko"
   },
+  "<global-nrwa-site-footer>": {
+    "template": "./nrwa-site-footer.marko"
+  },
   "<global-social-follow>": {
     "template": "./social-follow.marko"
   },
