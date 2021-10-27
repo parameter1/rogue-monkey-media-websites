@@ -16,14 +16,17 @@ $ const navigation = {
   attrs=input.attrs
 >
   <${input.aboveNav} />
-  <default-theme-site-navbar modifiers=["secondary"]>
-    <global-menu-toggle-button
-      class="site-navbar__toggler"
-      targets=[".site-menu", "body"]
-      toggle-class="site-menu--open"
-      icon-modifiers=["lg"]
-      icon-name="three-bars"
+  <default-theme-site-navbar modifiers=["primary"]>
+    <default-theme-site-navbar-items
+      items=navigation.primary
+      modifiers=["primary"]
+      reg-enabled=input.regEnabled
+      has-user=input.hasUser
     />
+  </default-theme-site-navbar>
+
+  <default-theme-site-navbar modifiers=["secondary"]>
+
 
     <default-theme-site-navbar-brand title=`${config.website("name")} Homepage`>
       <default-theme-site-navbar-logo
@@ -40,16 +43,16 @@ $ const navigation = {
       has-user=input.hasUser
     />
 
+    <global-menu-toggle-button
+      class="site-navbar__toggler"
+      targets=[".site-menu", "body"]
+      toggle-class="site-menu--open"
+      icon-modifiers=["lg"]
+      icon-name="three-bars"
+    />
     <!-- <marko-web-browser-component name="GlobalNewsletterToggleButton" ssr=true /> -->
   </default-theme-site-navbar>
 
-  <default-theme-site-navbar modifiers=["primary"]>
-    <default-theme-site-navbar-items
-      items=navigation.primary
-      modifiers=["primary"]
-      reg-enabled=input.regEnabled
-      has-user=input.hasUser
-    />
-  </default-theme-site-navbar>
+
   <${input.belowNav} />
 </marko-web-block>
