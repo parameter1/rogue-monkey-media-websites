@@ -19,6 +19,9 @@ const resources = [
 const utilities = [
   { href: '/page/advertise', label: 'Advertise' },
   { href: '/page/contact-us', label: 'Contact Us' },
+  { href: 'https://nrwa.org/annual_events/', label: 'Events', target: '_blank' },
+  { href: '/page/privacy-policy', label: 'Privacy Policy' },
+  { href: '/page/subscribe', label: 'Subscribe' },
 ];
 
 const mobileMenu = {
