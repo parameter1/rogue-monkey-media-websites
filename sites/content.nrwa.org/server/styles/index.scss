@@ -10,3 +10,40 @@ $theme-site-header-breakpoints: (
 $primary: #103a57;
 
 @import "../../node_modules/@rogue-monkey-media/package-global/scss/core";
+
+.site-footer {
+  box-shadow: none;
+  &__container--secondary {
+    background-color: #136abc;
+  }
+}
+
+.site-footer .wave-wrapper {
+  position: absolute;
+  top: -54px;
+  width: 100%;
+  height: calc(100% + 54px);
+  overflow: hidden;
+}
+
+.site-footer .wave-textured {
+  top: 0;
+  z-index: -1;
+}
+.wave-textured {
+  @keyframes movehorz3 {
+    from {
+      right: 0;
+    }
+    to {
+      right: -5000px;
+    }
+  }
+  position: absolute;
+  right: 0;
+  width: 8544px;
+  height: calc(100% + 54px);
+  background-image: url("https://p1-cms-assets.imgix.net/files/base/roguemonkeymedia/all/image/static/nrwa/nrwa-waves-footer.png");
+  background-repeat: no-repeat;
+  animation: movehorz3 64s linear infinite alternate;
+}
