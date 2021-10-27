@@ -54,4 +54,5 @@ module.exports = {
     logo: 'https://p1-cms-assets.imgix.net/files/base/roguemonkeymedia/all/image/static/nrwa/logo.svg?h=60&auto=format,compress&q=70&bg=FFFFFF&pad=5',
     bgColor: '#FFFFFF',
   },
+  useNRWAFooter: true,
 };

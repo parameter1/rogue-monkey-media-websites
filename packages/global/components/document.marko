@@ -74,7 +74,12 @@ $ const {
   </@above-container>
   <@below-container>
     <${input.belowContainer} />
-    <global-site-footer />
+    <if(site.config.useNRWAFooter)>
+      <global-nrwa-site-footer />
+    </if>
+    <else>
+      <global-site-footer />
+    </else>
   </@below-container>
   <@below-wrapper>
     <marko-web-deferred-script-loader-load />
