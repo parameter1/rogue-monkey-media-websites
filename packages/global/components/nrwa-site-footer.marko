@@ -16,7 +16,6 @@ $ const tagline = site.get("tagline");
   modifiers=input.modifiers
   attrs=input.attrs
 >
-<!--<img src="https://p1-cms-assets.imgix.net/files/base/roguemonkeymedia/all/image/static/nrwa/Blue-Wave-footer.svg">-->
   <div class="wave-wrapper">
     <div class="wave-textured"></div>
   </div>
@@ -28,24 +27,38 @@ $ const tagline = site.get("tagline");
           <p class="site-footer-nav__item">2915 S. 13th St., <br/>Duncan, OK 73533<br/><br/>Phone: 580.252.0629<br/>Fax: 580.255.4476<br/></p>
         </marko-web-element>
         <marko-web-element block-name=blockName name="section">
-          <global-social-follow dark=false modifiers=["site-footer"] />
-        </marko-web-element>
-        <marko-web-element block-name=blockName name="section">
           <div class="row">
             $ const navBlockName = "site-footer-nav";
+            $ const topics = site.getAsArray("navigation.footer.toolbox");
             <marko-web-block name=navBlockName class="col-6">
-              $ const topics = site.getAsArray("navigation.footer.toolbox");
               <if(topics.length)>
                 <default-theme-site-menu-section
                   tag="nav"
                   block-name=navBlockName
                   label="Toolbox"
-                  items=topics
+                  items=topics.slice(0,4)
                   reg-enabled=false
                   has-user=false
                 />
               </if>
             </marko-web-block>
+            <marko-web-block name=navBlockName class="col-6">
+              <if(topics.length)>
+                <default-theme-site-menu-section
+                  tag="nav"
+                  block-name=navBlockName
+                  label=""
+                  items=topics.slice(4,8)
+                  reg-enabled=false
+                  has-user=false
+                />
+              </if>
+            </marko-web-block>
+          </div>
+        </marko-web-element>
+        <marko-web-element block-name=blockName name="section">
+          $ const navBlockName = "site-footer-nav";
+          <div class="row">
             <marko-web-block name=navBlockName class="col-6">
               $ const more = site.getAsArray("navigation.footer.subscribe");
               <if(more.length)>
@@ -58,46 +71,9 @@ $ const tagline = site.get("tagline");
                   has-user=false
                 />
               </if>
+              <global-social-follow dark=false modifiers=["site-footer"] />
             </marko-web-block>
           </div>
-        </marko-web-element>
-        <marko-web-element block-name=blockName name="section">
-          $ const navBlockName = "site-footer-nav";
-          <div class="row">
-
-          </div>
-        </marko-web-element>
-        <marko-web-element block-name=blockName name="section">
-          $ const newsletterBlock = "site-footer-newsletter";
-          <if(newsletterConfig.action)>
-            <marko-web-block name=newsletterBlock>
-              <marko-web-element block-name=newsletterBlock name="header">
-                $!{newsletterConfig.name}
-              </marko-web-element>
-              <if(newsletterConfig.description)>
-                <marko-web-element block-name=newsletterBlock name="description">
-                  $!{newsletterConfig.description}
-                </marko-web-element>
-              </if>
-              <form action=newsletterConfig.action method="GET">
-                <div class="form-group">
-                  <label for="footer-newsletter-signup-email">Email</label>
-                  <input
-                    id="footer-newsletter-signup-email"
-                    class="form-control"
-                    type="email"
-                    placeholder="example@gmail.com"
-                    name="em"
-                    required
-                  />
-                  <for|item| of=newsletterConfig.hiddenInputs>
-                    <input type="hidden" name=item.name value=item.value />
-                  </for>
-                </div>
-                <button class="btn btn-primary" type="submit">Sign Up</button>
-              </form>
-            </marko-web-block>
-          </if>
         </marko-web-element>
       </div>
 
