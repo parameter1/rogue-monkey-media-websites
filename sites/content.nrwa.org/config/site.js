@@ -12,10 +12,10 @@ module.exports = {
   identityX,
   search,
   subscribe,
-  company: 'Rouge Monkey Media, LLC',
+  company: 'Rogue Monkey Media, LLC',
   publicationIds: [],
   p1events: {
-    tenant: 'rougemonkey',
+    tenant: 'roguemonkey',
     enabled: true,
     cookieDomain: process.env.NODE_ENV === 'production' ? 'content.nrwa.org' : '',
   },
