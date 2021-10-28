@@ -12,11 +12,69 @@ $primary: #103a57;
 @import "../../node_modules/@rogue-monkey-media/package-global/scss/core";
 
 .site-footer {
+  margin-top: 55px;
   box-shadow: none;
+  .social-follow{
+    &__header {
+      display: none;
+    }
+    &__section {
+      margin-top: 12px;
+    }
+  }
+  &__container--primary {
+    padding-top: map-get($spacers, 3);
+    padding-bottom: map-get($spacers, 3);
+    .site-footer {
+      &__copyright {
+        padding-right: map-get($spacers, block);
+        line-height: 1.5em;
+      }
+      &__inner-container {
+        flex-direction: row;
+        justify-content: center;
+        @media (max-width: 700px) {
+          @include make-col(12);
+          flex-direction: column;
+        }
+        .breadcrumbs {
+          &--site-footer {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
   &__container--secondary {
     background-color: #136abc;
   }
+  &__section {
+    @include make-col(3);
+    padding-right: map-get($spacers, block);
+    @media (max-width: $marko-web-document-container-max-width) {
+      @include make-col(6);
+    }
+    @media (max-width: 700px) {
+      @include make-col(12);
+      flex-direction: row-reverse;
+    }
+  }
+  &-nav__header {
+    position: relative;
+    display: inline-block;
+    padding-bottom: map-get($spacers, 1);
+    &::after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: calc(100% + 20px);
+      height: 1px;
+      content: "";
+      background-color: #d8d8d8;
+    }
+  }
 }
+
 
 .site-footer .wave-wrapper {
   position: absolute;
