@@ -56,6 +56,7 @@ module.exports = {
   desktopMenu,
   mobileMenu,
   footer: {
+    topics: topics.primary,
     toolbox: [
       { href: '/resource-guide', label: 'Resource Guide' },
       { href: 'https://www.ruralwatermag.com/ruralwater/third_quarter_2021_vol__42_no_3/MobilePagedArticle.action?articleId=1721459#articleId1721459', label: 'Rural Water Magazine', target: '_blank' },
@@ -68,6 +69,10 @@ module.exports = {
     subscribe: [
       { href: '/', label: 'Sign up to receive weekly updates from NRWA', target: '_blank' },
       { href: '/', label: 'Sign up for Rural Water Magazine', target: '_blank' },
+    ],
+    items: [
+      { href: '/page/privacy-policy', label: 'Privacy Policy' },
+      { href: '/site-map', label: 'Site Map' },
     ],
   },
 };
