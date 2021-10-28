@@ -4,9 +4,9 @@
 // $skin-font-family-primary: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, "Helvetica Neue", arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
 // $skin-font-family-secondary: $skin-font-family-primary !default;
 
-@import url("https://use.typekit.net/eae7fel.css");
-$skin-font-family-primary: solitaire-mvb-pro, sans-serif;
-$skin-font-family-secondary: informapro, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Open+Sans:wght@300;400;700&display=swap');
+$skin-font-family-primary: 'Alata', sans-serif;
+$skin-font-family-secondary: 'Open Sans', sans-serif;
 
 // Set bootstrap font to primary skin font
 $font-family-sans-serif: $skin-font-family-primary;
