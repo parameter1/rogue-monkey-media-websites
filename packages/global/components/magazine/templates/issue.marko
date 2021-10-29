@@ -50,7 +50,7 @@ $ const perPage = 5;
             <div class="row">
               <div class="col">
                 <h1 class="page-wrapper__title">
-                    ${issue.name}<if(p.page !== 1)> - Page ${p.page} </if>
+                    ${issue.name}
                 </h1>
                 <if(issue.description)>
                   <p class="page-wrapper__deck">$!{issue.description}</p>
@@ -67,13 +67,25 @@ $ const perPage = 5;
                     <global-magazine-latest-issue-block card=true flush=true node=issue />
                   </@featured>
                   <@list nodes=issueContent>
-                    <global-content-list-flow nodes=issueContent.slice(0,2) />
+                    <global-content-list-flow nodes=issueContent.slice(0,2) >
+                      <@header>
+                        In This Issue
+                      </@header>
+                    </global-content-list-flow>
                   </@list>
                 </default-theme-featured-flow>
-                <global-content-list-flow nodes=issueContent.slice(2) />
+                <global-content-list-flow nodes=issueContent.slice(2) >
+                  <@header>
+                    More In This Issue
+                  </@header>
+                </global-content-list-flow>
               </if>
               <else>
-                <global-content-list-flow nodes=issueContent />
+                <global-content-list-flow nodes=issueContent>
+                  <@header>
+                    More In This Issue - Page ${p.page}
+                  </@header>
+                </global-content-list-flow>
               </else>
             </marko-web-query>
 
