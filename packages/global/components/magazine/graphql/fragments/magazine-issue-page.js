@@ -10,7 +10,7 @@ fragment MagazineIssuePageFragment on MagazineIssue {
   canonicalPath
   coverImage {
     id
-    src(input: { options: { auto: "format,compress", q: 70 } })
+    src(input: { options: { auto: "format,compress" } })
   }
   publication {
     id
