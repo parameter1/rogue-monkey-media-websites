@@ -86,37 +86,12 @@ $ const currentPage = search.getCurrentPage();
                 $ const featuredParams = {
                   limit: 25,
                   sectionAlias: alias,
-                  optionName: ["Pinned", "Standard"],
+                  optionName: ["Pinned"],
                   sectionBubbling: false,
                   sort: { field: 'name', order: 'asc'},
                   queryFragment,
-
                 };
-                $ const microParams = {
-                  ...featuredParams,
-                  includeLabels: "Buyers Guide Microsite",
-                  queryFragment: microQueryFragment,
-                };
-                $ const adParams = {
-                  ...featuredParams,
-                  includeLabels: "Buyers Guide Advertiser",
-                  excludeLabels: "Buyers Guide Microsite",
-                };
-                <marko-web-query|{ nodes }| name="website-scheduled-content" params=microParams>
-                  <marko-web-node-list
-                    inner-justified=true
-                    flush-x=false
-                    flush-y=false
-                    modifiers=["directory-section-feed", "featured-listings"]
-                  >
-                    <@nodes nodes=nodes>
-                      <@slot|{ node }|>
-                        <global-directory-section-feed-content-node node=node with-dates=false is-featured=true />
-                      </@slot>
-                    </@nodes>
-                  </marko-web-node-list>
-                </marko-web-query>
-                <marko-web-query|{ nodes }| name="website-scheduled-content" params=adParams>
+                <marko-web-query|{ nodes }| name="website-scheduled-content" params=featuredParams>
                   <marko-web-node-list
                     inner-justified=true
                     flush-x=false
