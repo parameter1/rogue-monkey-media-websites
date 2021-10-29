@@ -60,7 +60,6 @@ $ const perPage = 5;
           </@section>
           <@section>
             <marko-web-query|{ nodes: issueContent }| name="magazine-scheduled-content" collapsible=false params={ issueId: id, limit: perPage, skip: p.skip({ perPage }), queryFragment: contentListFragment }>
-              $ console.log(p);
               <if(p.page === 1)>
                 <default-theme-featured-flow>
                   <@featured node=issue>
