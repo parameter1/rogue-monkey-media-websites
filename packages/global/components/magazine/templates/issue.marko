@@ -40,7 +40,18 @@ $ const perPage = 5;
           <@section>
             <div class="row">
               <div class="col">
-                <h1 class="page-wrapper__title">${issue.name}</h1>
+                <default-theme-breadcrumbs modifiers=["website-section"]>
+                  <@item><marko-web-link href="/magazine">Magazine</marko-web-link></@item>
+                  <@item><marko-web-magazine-publication-name tag=null obj=issue.publication link=true /></@item>
+                </default-theme-breadcrumbs>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col">
+                <h1 class="page-wrapper__title">
+                    ${issue.name}<if(p.page !== 1)> - Page ${p.page} </if>
+                </h1>
                 <if(issue.description)>
                   <p class="page-wrapper__deck">$!{issue.description}</p>
                 </if>
@@ -49,15 +60,23 @@ $ const perPage = 5;
           </@section>
           <@section>
             <marko-web-query|{ nodes: issueContent }| name="magazine-scheduled-content" collapsible=false params={ issueId: id, limit: perPage, skip: p.skip({ perPage }), queryFragment: contentListFragment }>
-              <default-theme-featured-flow>
-                <@featured node=issue>
-                  <global-magazine-latest-issue-block card=true flush=true node=issue />
-                </@featured>
-                <@list nodes=issueContent>
-                  <global-content-list-flow nodes=issueContent />
-                </@list>
-              </default-theme-featured-flow>
+              $ console.log(p);
+              <if(p.page === 1)>
+                <default-theme-featured-flow>
+                  <@featured node=issue>
+                    <global-magazine-latest-issue-block card=true flush=true node=issue />
+                  </@featured>
+                  <@list nodes=issueContent>
+                    <global-content-list-flow nodes=issueContent.slice(0,2) />
+                  </@list>
+                </default-theme-featured-flow>
+                <global-content-list-flow nodes=issueContent.slice(2) />
+              </if>
+              <else>
+                <global-content-list-flow nodes=issueContent />
+              </else>
             </marko-web-query>
+
             <global-section-feed-block|{ totalCount }|
               query-name="magazine-scheduled-content"
               count-only=true
