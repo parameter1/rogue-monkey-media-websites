@@ -17,6 +17,12 @@ fragment DirectorySectionFeedBlockContentFragment on Content {
     fullName
     canonicalPath
   }
+  primaryImage {
+    id
+    src(input: { options: { auto: "format,compress", q: 70 } })
+    alt
+    isLogo
+  }
   ... on Addressable {
     address1
     address2
