@@ -10,5 +10,15 @@
   },
   "<global-magazine-issue-cards-block>": {
     "template": "./magazine-issue-cards.marko"
+  },
+  "<global-magazine-latest-issue-block>": {
+    "template": "./magazine-latest-issue.marko",
+    "@node": "object",
+    "@flush": "boolean",
+    "@card": "boolean",
+    "@image-width": {
+      "type": "number",
+      "default-value": 300
+    }
   }
 }
