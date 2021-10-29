@@ -20,11 +20,11 @@ module.exports = (app) => {
     next();
   };
 
-  app.get('/:alias(directory)', searchMiddleware, withWebsiteSection({
+  app.get('/:alias(resource-guide)', searchMiddleware, withWebsiteSection({
     template: directory,
     queryFragment,
   }));
-  app.get('/:alias(directory/[a-z0-9-/]+)', searchMiddleware, withWebsiteSection({
+  app.get('/:alias(resource-guide/[a-z0-9-/]+)', searchMiddleware, withWebsiteSection({
     template: directory,
     queryFragment,
   }));
