@@ -21,6 +21,7 @@ const resources = [
   { href: '/videos', label: 'Videos' },
   { href: '/resource-guide', label: 'Resource Guide' },
   { href: 'https://careers.nrwa.org', label: 'Career Center', target: '_blank' },
+  { href: '/whitepaper', label: 'Whitepapers' },
 ];
 
 const utilities = [
@@ -40,10 +41,15 @@ const mobileMenu = {
 };
 
 const desktopMenu = {
-  about: [...utilities],
+  about: [
+    ...utilities,
+    { href: 'https://nrwa.org/annual_events/', label: 'Events' },
+    { href: '#', label: 'Subscribe' },
+  ],
   sections: [
-    ...topics.primary,
-    ...topics.expanded,
+    { href: '/legislation', label: 'Legislation' },
+    { href: '/technology', label: 'Technology' },
+    { href: '/resource-guide', label: 'Resource Guide' },
   ],
   toolbox: [
     { href: '/resource-guide', label: 'Resource Guide' },
@@ -52,6 +58,9 @@ const desktopMenu = {
     { href: 'http://nrwa.org/non-discrimination-policy/', label: 'Non-Discrimination Policy', target: '_blank' },
     { href: 'https://members.nrwa.org/Public/Members/NRWA-Store/iCore/Store/StoreLayouts/Store_Home.aspx', label: 'NRWA Online Store', target: '_blank' },
     { href: 'http://nrwa.org/wp-content/uploads/2021/02/2021-NRWA-MediaKit-FINAL-1.pdf', label: 'Media Kit', target: '_blank' },
+  ],
+  resources: [
+    ...resources,
   ],
 };
 

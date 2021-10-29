@@ -168,6 +168,7 @@ body.site-menu--open {
   $self: &;
 
   &--site-menu {
+    padding-top: $theme-site-navbar-menu-link-padding-x * 2 + 4px;
     padding-bottom: $theme-site-navbar-menu-link-padding-x * 2 + 4px;
     border-bottom: 1px solid $gray-200;
     @media (min-width: $skin-desktop-menu-breakpoint) {
