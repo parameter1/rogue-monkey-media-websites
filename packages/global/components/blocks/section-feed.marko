@@ -1,13 +1,17 @@
 import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
 import queryFragment from "../../graphql/fragments/section-feed-block";
 
-$ const queryParams =  input.queryName ? { ...input.queryParams } : {
-  ...input.queryParams,
-  sectionAlias: input.alias,
-  queryFragment,
-};
-$ const queryName = input.queryName ? input.queryName : "website-scheduled-content";
 
+$ const queryName = input.queryName ? input.queryName : "website-scheduled-content";
+$ const queryParams =  {
+  ...input.queryParams,
+  ...(queryName === "website-scheduled-content") && {
+    sectionAlias: input.alias,
+    queryFragment,
+  }
+};
+
+$ console.log(queryParams);
 $ const blockName = "section-feed";
 $ const countOnly = defaultValue(input.countOnly, false);
 $ const lazyload = defaultValue(input.lazyload, true);
