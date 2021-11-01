@@ -86,10 +86,6 @@ body.site-menu--open {
         }
         &__item {
           @include skin-typography($style: "menu-item-primary");
-          @media (min-width: $skin-desktop-menu-breakpoint) {
-            font-size: 18px;
-            line-height: 1.22;
-          }
         }
 
         &__link {

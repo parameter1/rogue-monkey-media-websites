@@ -1,5 +1,5 @@
 $theme-site-header-breakpoints: (
-  hide-primary: 100000px, // effectively always hide the primary nav
+  hide-primary: 800px, // effectively always hide the primary nav
   hide-secondary: 780px,
   small-logo: 980px,
   small-text-primary: 0,
@@ -10,6 +10,42 @@ $theme-site-header-breakpoints: (
 $primary: #103a57;
 
 @import "../../node_modules/@rogue-monkey-media/package-global/scss/core";
+
+
+.site-header {
+  .site-navbar {
+    &--primary {
+      background-color: #3956a6;
+    }
+    &__items {
+      text-transform: none;
+      &--primary {
+        font-size: 14px;
+        .site-navbar {
+          &__label {
+            color: $white;
+          }
+          &__item {
+            padding-right: map-get($spacers, 4);
+            padding-left: map-get($spacers, 4);
+          }
+          &__item:last-of-type {
+            padding-right: 0;
+          }
+        }
+      }
+      &--secondary {
+        .site-navbar {
+          &__link {
+            padding-right: map-get($spacers, 4);
+            padding-left: map-get($spacers, 4);
+          }
+        }
+        font-size: 1rem;
+      }
+    }
+  }
+}
 
 .site-footer {
   margin-top: 55px;
