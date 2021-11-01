@@ -3,7 +3,6 @@ const queryFragment = require('@rogue-monkey-media/package-global/graphql/fragme
 const contact = require('@rogue-monkey-media/package-global/templates/content/contact');
 const company = require('../templates/content/company');
 const mediaGallery = require('../templates/content/media-gallery');
-const product = require('../templates/content/product');
 const whitepaper = require('../templates/content/whitepaper');
 const content = require('../templates/content');
 
@@ -20,11 +19,6 @@ module.exports = (app) => {
 
   app.get('/*?media-gallery/:id(\\d{8})*', withContent({
     template: mediaGallery,
-    queryFragment,
-  }));
-
-  app.get('/*?product/:id(\\d{8})*', withContent({
-    template: product,
     queryFragment,
   }));
 
