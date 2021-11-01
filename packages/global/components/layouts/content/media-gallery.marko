@@ -38,7 +38,7 @@ $ const sections = getAsArray(input, "sections");
         <global-image-slider
           modifiers=["project-gallery"]
           images=getAsArray(content, "images.edges").map(edge => edge.node)
-          image-options={ fit: "crop", w: 879, h: 586, auto: "format,compress", q: 70 }
+          image-options={ fit: "crop", w: 879, h: 586, auto: "format,compress" }
         />
 
         $ const bodyId = `content-body-${content.id}`;
