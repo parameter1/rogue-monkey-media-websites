@@ -31,6 +31,9 @@
   }
   &--magazine-issue {
     .magazine-publication-card-block {
+      padding-left: map-get($spacers, block);
+      padding-right: map-get($spacers, block);
+      background-color: $gray-100;
       &__body {
         padding-right: 10px;
         padding-left: 10px;

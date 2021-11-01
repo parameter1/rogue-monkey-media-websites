@@ -47,6 +47,16 @@ $ const optionsMap = {
       }
     `,
     variables: { input: params },
+  },
+  "magazine-scheduled-content": {
+    query: gql`
+      query MagazineScheduledContent($input: MagazineScheduledContentQueryInput!) {
+        result: magazineScheduledContent(input: $input) {
+          totalCount
+        }
+      }
+    `,
+    variables: { input: params },
   }
 };
 $ const options = optionsMap[input.name];

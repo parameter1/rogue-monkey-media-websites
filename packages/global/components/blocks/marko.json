@@ -106,7 +106,8 @@
     "<node>": {},
     "@alias": "string",
     "@count-only": "boolean",
-    "@lazyload": "boolean"
+    "@lazyload": "boolean",
+    "@query-name": "string"
   },
   "<global-section-title-feed-block>": {
     "template": "./section-title-feed.marko",
