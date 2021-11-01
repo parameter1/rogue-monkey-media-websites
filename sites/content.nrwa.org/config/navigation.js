@@ -45,6 +45,7 @@ const desktopMenu = {
     ...utilities,
     { href: 'https://nrwa.org/annual_events/', label: 'Events' },
     { href: '#', label: 'Subscribe' },
+    { href: '/page/privacy-policy', label: 'Privacy Policy' },
   ],
   sections: [
     { href: '/legislation', label: 'Legislation' },
