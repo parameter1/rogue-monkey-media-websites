@@ -20,7 +20,11 @@ $primary: #103a57;
     &__items {
       text-transform: none;
       &--primary {
+        font-size: 14px;
         .site-navbar {
+          &__label {
+            color: $white;
+          }
           &__item {
             padding-right: map-get($spacers, 4);
             padding-left: map-get($spacers, 4);
@@ -31,7 +35,13 @@ $primary: #103a57;
         }
       }
       &--secondary {
-        justify-content: space-between;
+        .site-navbar {
+          &__link {
+            padding-right: map-get($spacers, 4);
+            padding-left: map-get($spacers, 4);
+          }
+        }
+        font-size: 1rem;
       }
     }
   }

@@ -86,10 +86,6 @@ body.site-menu--open {
         }
         &__item {
           @include skin-typography($style: "menu-item-primary");
-          @media (min-width: $skin-desktop-menu-breakpoint) {
-            font-size: 18px;
-            line-height: 1.22;
-          }
         }
 
         &__link {
@@ -168,7 +164,6 @@ body.site-menu--open {
   $self: &;
 
   &--site-menu {
-    padding-top: $theme-site-navbar-menu-link-padding-x * 2 + 4px;
     padding-bottom: $theme-site-navbar-menu-link-padding-x * 2 + 4px;
     border-bottom: 1px solid $gray-200;
     @media (min-width: $skin-desktop-menu-breakpoint) {
