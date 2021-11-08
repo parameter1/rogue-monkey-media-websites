@@ -25,6 +25,7 @@ $ const { $projectsGraphQL } = out.global;
 
   <@section|{ aliases, blockName, content }| modifiers=["content-header"]>
     $ const { primarySection } = content;
+    $ const videos = getAsArray(content, "videos.edges").map(({ node }) => node);
     <global-content-page-breadcrumbs section=primarySection />
     <div class="row">
       <div class="col-lg-8">
@@ -60,11 +61,6 @@ $ const { $projectsGraphQL } = out.global;
           </default-theme-page-contents>
         </div>
 
-        <global-directory-featured-projects-block
-          graphql-client=$projectsGraphQL
-          short-ids=content.projectShortIds
-        />
-
         <marko-web-query|{ nodes }|
           name="all-company-content"
           params={
@@ -79,19 +75,10 @@ $ const { $projectsGraphQL } = out.global;
           </global-content-directory-section-flow>
         </marko-web-query>
 
-        <marko-web-query|{ nodes }|
-          name="all-company-content"
-          params={
-            companyId: content.id,
-            includeContentTypes: ["Video"],
-            limit: 10,
-            queryFragment,
-          }
-        >
-          <global-content-directory-section-flow nodes=nodes>
-            <@header>Videos</@header>
-          </global-content-directory-section-flow>
-        </marko-web-query>
+
+        <global-content-directory-section-flow nodes=videos is-youtube-videos=true content=content>
+          <@header>Videos</@header>
+        </global-content-directory-section-flow>
 
         <marko-web-query|{ nodes }|
           name="all-company-content"
@@ -132,27 +119,8 @@ $ const { $projectsGraphQL } = out.global;
           name="all-company-content"
           params={
             companyId: content.id,
-            includeContentTypes: ["MediaGallery"],
-            includeLabels: "Buyers Guide Project Gallery",
-            limit: 10,
-            queryFragment,
-          }
-        >
-          <global-content-directory-section-flow nodes=nodes>
-            <@header>Project Galleries</@header>
-            <@node with-section=false with-dates=false>
-              <@image width=100 ar="1:1" />
-            </@node>
-          </global-content-directory-section-flow>
-        </marko-web-query>
-
-        <marko-web-query|{ nodes }|
-          name="all-company-content"
-          params={
-            companyId: content.id,
             includeContentTypes: ["Document", "Promotion"],
             limit: 10,
-            includeLabels: "Buyers Guide Catalog",
             queryFragment,
           }
         >
@@ -171,15 +139,6 @@ $ const { $projectsGraphQL } = out.global;
             content=content
           />
         </if>
-        <else>
-          <!-- <global-gam-define-display-ad
-            name="rotation-1"
-            position="content_page"
-            aliases=aliases
-            modifiers=["max-width-300", "center", "margin-auto-x", "rail"]
-            class="mb-block"
-          /> -->
-        </else>
       </div>
     </div>
   </@section>
