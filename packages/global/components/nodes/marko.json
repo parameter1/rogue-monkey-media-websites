@@ -44,5 +44,11 @@
   },
   "<global-section-feed-content-node>": {
     "template": "./section-feed-content.marko"
+  },
+  "<global-youtube-card-node>": {
+    "template": "./youtube-card.marko",
+    "@node": "object",
+    "@company-id": "number",
+    "@link-attrs": "object"
   }
 }
