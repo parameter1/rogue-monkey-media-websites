@@ -1,8 +1,8 @@
-import { getAsObject } from "@parameter1/base-cms-object-path";
+import { getAsObject, get } from "@parameter1/base-cms-object-path";
 
-$ const { nodes, header } = input
+$ const { nodes, header, isYoutubeVideos } = input
 $ const image = getAsObject(input, "node.image");
-
+$ const content = getAsObject(input, "content");
 $ const blockName = "read-next";
 
 <if(nodes.length)>
@@ -20,6 +20,19 @@ $ const blockName = "read-next";
     >
       <@nodes nodes=nodes>
         <@slot|{ node }|>
+        <if(isYoutubeVideos)>
+          <div class="node-list__node">
+            <global-youtube-card-node
+              node=node
+              company-id=content.id
+              link-attrs={
+                "data-company-id": content.id,
+                "data-company-name": content.name,
+              }
+            />
+          </div>
+        </if>
+        <else>
           <global-content-node
             image-position="left"
             ...input.node
@@ -29,8 +42,17 @@ $ const blockName = "read-next";
           >
             <@image width=160 ar="3:2" ...image />
           </global-content-node>
+        </else>
         </@slot>
       </@nodes>
+      <if(isYoutubeVideos && content)>
+        <@footer>
+          $ const url = get(content, "youtube.url");
+          <a href=url target="_blank" rel="noopener" class="btn btn-sm btn-block btn-secondary">
+            View All Videos &gt;
+          </a>
+        </@footer>
+      </if>
     </marko-web-node-list>
   </marko-web-block>
 </if>
