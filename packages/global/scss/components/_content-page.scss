@@ -4,6 +4,11 @@
     margin-bottom: 1rem;
   }
 
+  &__content-teaser {
+    @include skin-typography($style: "article-text", $link-style: "content-body");
+    font-style: italic;
+  }
+
   &__section {
     &--content-page-body {
       max-width: $skin-content-body-max-width;
