@@ -148,7 +148,7 @@
       }
       img {
         width: auto;
-        min-width: 100%;
+        min-width: auto;
         max-width: 100%;
         max-height: 300px;
       }
@@ -160,7 +160,7 @@
       }
       img {
         width: auto;
-        min-width: 100%;
+        min-width: auto;
         max-width: 100%;
         max-height: 300px;
       }
@@ -206,7 +206,7 @@
 
   [data-embed-type] .caption,
   [data-embed-type] .credit {
-    display: inline;
+    display: inline-block;
     margin-right: .5rem;
   }
 
