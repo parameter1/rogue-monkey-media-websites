@@ -1,4 +1,7 @@
-// theme css
+// import local variables
+@import "variables";
+
+// import theme css
 @import "../../node_modules/@rogue-monkey-media/package-theme-monorail/scss/core";
 
 // skin components
