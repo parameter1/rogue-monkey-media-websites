@@ -41,10 +41,10 @@ $ const perPage = 50;
             <div class="row">
               <div class="col">
                 <marko-web-resolve-page|{ data: issue }| node=pageNode>
-                  <default-theme-breadcrumbs modifiers=["website-section"]>
+                  <theme-breadcrumbs modifiers=["website-section"]>
                     <@item><marko-web-link href="/magazine">Magazine</marko-web-link></@item>
                     <@item><marko-web-magazine-publication-name tag=null obj=issue.publication link=true /></@item>
-                  </default-theme-breadcrumbs>
+                  </theme-breadcrumbs>
                   <div class="magazine-publication-card-block">
                     <div class="magazine-publication-card-block__body">
                       <div class="row">
