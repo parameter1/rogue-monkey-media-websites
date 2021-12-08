@@ -11,8 +11,30 @@
 @import "./components/directory-facets";
 @import "./components/page-wrapper";
 @import "./components/site-menu";
-@import "./components/site-navbar";
 
+// navbar
+.site-navbar {
+  $self: &;
+  &__items {
+    &--primary {
+      justify-content: flex-end;
+      #{ $self }__item {
+        flex-grow: initial;
+        &:last-of-type {
+          padding-right: 0;
+        }
+      }
+    }
+
+    &--secondary {
+      flex-grow: 1;
+      justify-content: flex-end;
+      padding-right: map-get($spacers, block);
+    }
+  }
+}
+
+// blocks
 @import "./components/blocks/callout-cards";
 @import "./components/blocks/directory-section-feed";
 @import "./components/blocks/gear";
