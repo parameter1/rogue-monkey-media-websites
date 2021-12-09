@@ -4,9 +4,28 @@
 // import theme css
 @import "../../node_modules/@rogue-monkey-media/package-theme-monorail/scss/core";
 
+// page wrapper
+.page-wrapper {
+  &__content-name {
+    margin-bottom: 1rem;
+  }
+
+  &__content-teaser {
+    @include skin-typography($style: "article-text", $link-style: "content-body");
+    font-style: italic;
+  }
+
+  .details {
+    &__image {
+      float: right;
+      clear: both;
+    }
+  }
+}
+
+
 // skin components
 @import "./components/carousel";
-@import "./components/content-page";
 @import "./components/digital-edition";
 @import "./components/directory-facets";
 @import "./components/site-menu";
