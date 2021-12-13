@@ -1,8 +1,7 @@
-import { getAsObject, get } from "@parameter1/base-cms-object-path";
+import { getAsObject } from "@parameter1/base-cms-object-path";
 
 $ const { nodes, header } = input
 $ const image = getAsObject(input, "node.image");
-$ const content = getAsObject(input, "content");
 $ const blockName = "read-next";
 
 <if(nodes.length)>
