@@ -76,9 +76,23 @@ $ const { $projectsGraphQL } = out.global;
         </marko-web-query>
 
 
-        <global-content-directory-section-flow nodes=videos is-youtube-videos=true content=content>
-          <@header>Videos</@header>
-        </global-content-directory-section-flow>
+        <marko-web-query|{ nodes }|
+          name="all-company-content"
+          params={
+            companyId: content.id,
+            includeContentTypes: ["Video"],
+            limit: 10,
+            queryFragment,
+          }
+        >
+          <global-content-directory-section-flow nodes=nodes content=content>
+            <@header>Videos</@header>
+          </global-content-directory-section-flow>
+        </marko-web-query>
+
+        <global-content-youtube-videos-flow nodes=videos content=content>
+          <@header>Youtube Videos</@header>
+        </global-content-youtube-videos-flow>
 
         <marko-web-query|{ nodes }|
           name="all-company-content"

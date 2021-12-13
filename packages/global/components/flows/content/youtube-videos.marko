@@ -1,0 +1,45 @@
+import { getAsObject, get } from "@parameter1/base-cms-object-path";
+
+$ const { nodes, header } = input
+$ const image = getAsObject(input, "node.image");
+$ const content = getAsObject(input, "content");
+$ const blockName = "read-next";
+
+<if(nodes.length)>
+  <marko-web-block name=blockName>
+    <if(header && header.renderBody)>
+      <marko-web-element block-name=blockName name="header">
+        <${header.renderBody} />
+      </marko-web-element>
+    </if>
+    <marko-web-node-list
+      inner-justified=false
+      flush-x=true
+      flush-y=true
+      modifiers=[blockName]
+    >
+      <@nodes nodes=nodes>
+        <@slot|{ node }|>
+          <div class="node-list__node">
+            <global-youtube-card-node
+              node=node
+              company-id=content.id
+              link-attrs={
+                "data-company-id": content.id,
+                "data-company-name": content.name,
+              }
+            />
+          </div>
+        </@slot>
+      </@nodes>
+      <if(content.youtube)>
+        <@footer>
+          $ const url = get(content, "youtube.url");
+          <a href=url target="_blank" rel="noopener" class="btn btn-sm btn-block btn-secondary">
+            View All Videos &gt;
+          </a>
+        </@footer>
+      </if>
+    </marko-web-node-list>
+  </marko-web-block>
+</if>
