@@ -1,3 +1,4 @@
+import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
 import { getAsObject } from "@parameter1/base-cms-object-path";
 import eventLinkAttrs from "@parameter1/base-cms-marko-web-p1-events/utils/link-attrs";
 import eventEntity from "@parameter1/base-cms-marko-web-p1-events/utils/base-content-entity";
@@ -5,6 +6,7 @@ import eventEntity from "@parameter1/base-cms-marko-web-p1-events/utils/base-con
 $ const video = getAsObject(input, "node");
 $ const primaryImage = getAsObject(video, "primaryImage");
 $ const withDescription = input.withDescription != null ? input.withDescription : true;
+$ const imagePosition = defaultValue(input.imagePosition, 'left');
 
 $ const href = video.url;
 $ const link = {
@@ -22,16 +24,17 @@ $ const link = {
 
 <marko-web-node
   type="video-content"
-  image-position="left"
+  image-position=imagePosition
   flush=true
   attrs=input.attrs
-  modifiers=["read-next"]
+  modifiers=input.modifiers
 >
   <@image
     src=video.thumbnail
     alt=video.title
     width=160
-    ar="3:2"
+    fluid=true
+    ar="16:9"
     link=link
   />
   <@body>

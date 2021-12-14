@@ -27,16 +27,7 @@
     },
     "@nodes": "array"
   },
-  "<global-content-card-deck-4-col-flow>": {
-    "template": "./card-deck-4-col.marko"
-  },
-  "<global-content-youtube-videos-flow>": {
-    "template": "./youtube-videos.marko",
-    "<header>": {},
-    "<node>": {
-      "<image>": {}
-    },
-    "@nodes": "array",
-    "@content": "object"
+  "<global-content-card-deck-col-flow>": {
+    "template": "./card-deck-col.marko"
   }
 }

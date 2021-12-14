@@ -1,4 +1,4 @@
-import { getAsArray } from "@parameter1/base-cms-object-path";
+import { getAsArray, get } from "@parameter1/base-cms-object-path";
 import { buildImgixUrl } from "@parameter1/base-cms-image";
 import imageHeight from "@parameter1/base-cms-marko-web/components/node/utils/image-height";
 import queryFragment from "@rogue-monkey-media/package-global/graphql/fragments/section-feed-block";
@@ -61,6 +61,34 @@ $ const { $projectsGraphQL } = out.global;
           </default-theme-page-contents>
         </div>
 
+        <marko-web-node-list block-name="read-next" modifiers=["featured"]>
+          <@header block-name="read-next" modifiers=["featured"]>
+            Featured Videos
+          </@header>
+          <@nodes|{ nodes }| nodes=videos block-name="read-next" modifiers=["featured"]>
+            <default-theme-card-deck-flow cols=3 nodes=nodes modifiers=[]>
+              <@slot|{ node, index }|>
+                <global-youtube-card-node
+                  node=node
+                  company-id=content.id
+                  modifiers=["read-next"]
+                  image-position="top"
+                  link-attrs={
+                    "data-company-id": content.id,
+                    "data-company-name": content.name,
+                  }
+                />
+              </@slot>
+            </default-theme-card-deck-flow>
+          </@nodes>
+          <@footer block-name="read-next" modifiers=["featured"]>
+            $ const url = get(content, "youtube.url");
+            <a href=url target="_blank" rel="noopener">
+              View More Featured Videos &raquo;
+            </a>
+          </@footer>
+        </marko-web-node-list>
+
         <marko-web-query|{ nodes }|
           name="all-company-content"
           params={
@@ -74,25 +102,6 @@ $ const { $projectsGraphQL } = out.global;
             <@header>Products & Press Releases</@header>
           </global-content-directory-section-flow>
         </marko-web-query>
-
-
-        <marko-web-query|{ nodes }|
-          name="all-company-content"
-          params={
-            companyId: content.id,
-            includeContentTypes: ["Video"],
-            limit: 10,
-            queryFragment,
-          }
-        >
-          <global-content-directory-section-flow nodes=nodes content=content>
-            <@header>Videos</@header>
-          </global-content-directory-section-flow>
-        </marko-web-query>
-
-        <global-content-youtube-videos-flow nodes=videos content=content>
-          <@header>Youtube Videos</@header>
-        </global-content-youtube-videos-flow>
 
         <marko-web-query|{ nodes }|
           name="all-company-content"
