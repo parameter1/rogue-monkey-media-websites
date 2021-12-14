@@ -25,9 +25,7 @@
     "<node>": {
       "<image>": {}
     },
-    "@nodes": "array",
-    "@is-youtube-videos": "boolean",
-    "@content": "object"
+    "@nodes": "array"
   },
   "<global-content-card-deck-col-flow>": {
     "template": "./card-deck-col.marko"

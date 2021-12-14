@@ -107,20 +107,6 @@ $ const { $projectsGraphQL } = out.global;
           name="all-company-content"
           params={
             companyId: content.id,
-            includeContentTypes: ["Video"],
-            limit: 10,
-            queryFragment,
-          }
-        >
-          <global-content-directory-section-flow nodes=nodes>
-            <@header>Videos</@header>
-          </global-content-directory-section-flow>
-        </marko-web-query>
-
-        <marko-web-query|{ nodes }|
-          name="all-company-content"
-          params={
-            companyId: content.id,
             excludeContentTypes: ["Product", "PressRelease", "Video", "Document", "Promotion", "MediaGallery"],
             limit: 10,
             queryFragment,
