@@ -47,6 +47,8 @@
   },
   "<global-youtube-card-node>": {
     "template": "./youtube-card.marko",
+    "@image-position": "string",
+    "@modifiers": "array",
     "@node": "object",
     "@company-id": "number",
     "@link-attrs": "object"
