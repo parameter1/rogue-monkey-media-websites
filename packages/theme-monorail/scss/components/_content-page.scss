@@ -1,7 +1,6 @@
 .page-wrapper {
   &__content-name {
     @include skin-typography($style: "header-1");
-    margin-bottom: 1rem;
   }
 
   &__section {
@@ -9,13 +8,6 @@
       max-width: $skin-content-body-max-width;
       margin-right: auto;
       margin-left: auto;
-    }
-  }
-
-  .details {
-    &__image {
-      float: right;
-      clear: both;
     }
   }
 }
@@ -32,6 +24,9 @@
   max-width: $skin-content-body-max-width;
   margin-right: auto;
   margin-left: auto;
+  video {
+    max-width: 100%;
+  }
 }
 
 .content-page-header {
@@ -43,15 +38,6 @@
 
   margin-right: auto;
   margin-left: auto;
-}
-
-.breadcrumbs {
-  &--content-page {
-    @include skin-typography($style: "slug-medium", $link-style: "primary");
-    .breadcrumb {
-      padding-bottom: 1rem;
-    }
-  }
 }
 
 .page-dates {
@@ -107,7 +93,9 @@
 
 .page-contents {
   $self: &;
-  &__content-body {
+  &__content-body,
+  &__content-profile,
+  &__content-sidebar {
     padding-bottom: map-get($spacers, block);
     @include skin-typography($style: "article-text", $link-style: "content-body");
 
@@ -128,15 +116,40 @@
         text-decoration: none;
       }
     }
-
-    .clear {
-      display: none;
+    .node-list {
+      &--gray-background {
+        background-color: $gray-100;
+      }
     }
-  }
+    .section-feed-content-node {
+      &__content-short-name {
+        font-size: 20px;
+        line-height: 1em;
+      }
+      &__image-wrapper {
+        width: 125px;
+        min-width: 125px;
+        height: 83px;
+        @include media-breakpoint-up(md) {
+          width: 198px;
+          min-width: 198px;
+          height: 131px;
+        }
+      }
+      &__image {
+        width: 125px;
+        height: 83px;
+        @include media-breakpoint-up(md) {
+          width: 198px;
+          height: 131px;
+        }
+      }
+    }
 
-  &__content-body hr {
-    display: block;
-    clear: both;
+    hr {
+      display: block;
+      clear: both;
+    }
   }
 
   &__content-body p {
@@ -167,13 +180,22 @@
     }
   }
 
-  &__content-body h2,
-  &__content-body h3 {
+  &__content-body h2 {
     margin-bottom: 0;
     font-size: 26px;
     @include media-breakpoint-down(sm) {
       font-size: 23px;
     }
+  }
+
+  &__content-body h3 {
+    margin-bottom: 0;
+    font-size: 24px;
+  }
+
+  &__content-body ol,
+  &__content-body ul {
+    list-style-position: initial;
   }
 
   &--download-form {
@@ -206,7 +228,7 @@
 
   [data-embed-type] .caption,
   [data-embed-type] .credit {
-    display: inline;
+    display: inline-block;
     margin-right: .5rem;
   }
 

@@ -48,19 +48,8 @@
 
     &__items {
       text-transform: none;
-      &--primary {
-        justify-content: flex-end;
-        #{ $self }__item {
-          flex-grow: initial;
-          &:last-of-type {
-            padding-right: 0;
-          }
-        }
-      }
+
       &--secondary {
-        flex-grow: 1;
-        justify-content: flex-end;
-        padding-right: map-get($spacers, block);
         @media (max-width: map-get($theme-site-header-breakpoints, hide-secondary)) {
           display: none;
         }

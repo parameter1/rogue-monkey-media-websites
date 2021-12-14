@@ -1,36 +1,57 @@
-// skin functions and vars (funcs must be first).
-@import "./functions";
-@import "./variables";
+// import local variables
+@import "variables";
 
-@import "../../node_modules/@parameter1/base-cms-marko-web-theme-default/scss/theme";
-@import "../../node_modules/bootstrap/scss/spinners";
+// import theme css
+@import "../../node_modules/@rogue-monkey-media/package-theme-monorail/scss/core";
 
-@import "../../node_modules/@parameter1/base-cms-marko-web-social-sharing/scss/buttons";
-@import "../../node_modules/bootstrap/scss/input-group";
-@import "../../node_modules/@parameter1/base-cms-marko-web-html-sitemap/scss/index";
+// page wrapper
+.page-wrapper {
+  &__content-name {
+    margin-bottom: 1rem;
+  }
 
-// skin mixins
-@import "./mixins";
+  &__content-teaser {
+    @include skin-typography($style: "article-text", $link-style: "content-body");
+    font-style: italic;
+  }
+
+  .details {
+    &__image {
+      float: right;
+      clear: both;
+    }
+  }
+}
+
 
 // skin components
-@import "./components/ads";
-@import "./components/author-node";
-@import "./components/author-published-node";
 @import "./components/carousel";
-@import "./components/comments";
-@import "./components/content-page";
 @import "./components/digital-edition";
 @import "./components/directory-facets";
-@import "./components/page-wrapper";
-@import "./components/pagination-controls";
-@import "./components/site-footer";
-@import "./components/site-menu";
-@import "./components/site-navbar";
-@import "./components/site-navbar2";
-@import "./components/search-page";
-@import "./components/spec-guide";
-@import "./components/sponsor-logo";
 
+// navbar
+.site-navbar {
+  $self: &;
+  &__items {
+    &--primary {
+      justify-content: flex-end;
+      #{ $self }__item {
+        flex-grow: initial;
+        &:last-of-type {
+          padding-right: 0;
+        }
+      }
+    }
+
+    &--secondary {
+      flex-grow: 1;
+      justify-content: flex-end;
+      padding-right: map-get($spacers, block);
+    }
+  }
+}
+
+// blocks
 @import "./components/blocks/callout-cards";
 @import "./components/blocks/directory-section-feed";
 @import "./components/blocks/gear";
