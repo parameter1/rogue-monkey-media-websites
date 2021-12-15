@@ -30,7 +30,7 @@ $ facets.sort((a, b) => a.name.localeCompare(b.name));
           ${facet.name}
         </a>
         <if(children.length)>
-          <global-menu-toggle-button
+          <theme-menu-toggle-button
             class-name=`${block}__toggle`
             targets=[`.${block}__item--${facet.id}`]
             toggle-class=`${block}__item--open`
