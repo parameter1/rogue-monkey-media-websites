@@ -106,6 +106,19 @@ fragment ContentPageFragment on Content {
         fullName
       }
     }
+    youtube {
+      url
+    }
+    videos: youtubeVideos(input: { pagination: { limit: 3 } }) {
+      edges {
+        node {
+          id
+          url
+          title
+          thumbnail(input: { size: medium })
+        }
+      }
+    }
   }
   ... on SocialLinkable {
     socialLinks {

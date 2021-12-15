@@ -1,4 +1,4 @@
-import { getAsArray } from "@parameter1/base-cms-object-path";
+import { getAsArray, get } from "@parameter1/base-cms-object-path";
 import { buildImgixUrl } from "@parameter1/base-cms-image";
 import imageHeight from "@parameter1/base-cms-marko-web/components/node/utils/image-height";
 import queryFragment from "@rogue-monkey-media/package-global/graphql/fragments/section-feed-block";
@@ -25,6 +25,7 @@ $ const { $projectsGraphQL } = out.global;
 
   <@section|{ aliases, blockName, content }| modifiers=["content-header"]>
     $ const { primarySection } = content;
+    $ const videos = getAsArray(content, "videos.edges").map(({ node }) => node);
     <theme-content-page-breadcrumbs section=primarySection />
     <div class="row">
       <div class="col-lg-8">
@@ -60,10 +61,33 @@ $ const { $projectsGraphQL } = out.global;
           </default-theme-page-contents>
         </div>
 
-        <global-directory-featured-projects-block
-          graphql-client=$projectsGraphQL
-          short-ids=content.projectShortIds
-        />
+        <marko-web-node-list block-name="read-next" modifiers=["featured"]>
+          <@header block-name="read-next" modifiers=["featured"]>
+            Featured Videos
+          </@header>
+          <@nodes|{ nodes }| nodes=videos block-name="read-next" modifiers=["featured"]>
+            <default-theme-card-deck-flow cols=3 nodes=nodes modifiers=[]>
+              <@slot|{ node, index }|>
+                <global-youtube-card-node
+                  node=node
+                  company-id=content.id
+                  modifiers=["read-next"]
+                  image-position="top"
+                  link-attrs={
+                    "data-company-id": content.id,
+                    "data-company-name": content.name,
+                  }
+                />
+              </@slot>
+            </default-theme-card-deck-flow>
+          </@nodes>
+          <@footer block-name="read-next" modifiers=["featured"]>
+            $ const url = get(content, "youtube.url");
+            <a href=url target="_blank" rel="noopener">
+              View More Featured Videos &raquo;
+            </a>
+          </@footer>
+        </marko-web-node-list>
 
         <marko-web-query|{ nodes }|
           name="all-company-content"
@@ -132,27 +156,8 @@ $ const { $projectsGraphQL } = out.global;
           name="all-company-content"
           params={
             companyId: content.id,
-            includeContentTypes: ["MediaGallery"],
-            includeLabels: "Buyers Guide Project Gallery",
-            limit: 10,
-            queryFragment,
-          }
-        >
-          <global-content-directory-section-flow nodes=nodes>
-            <@header>Project Galleries</@header>
-            <@node with-section=false with-dates=false>
-              <@image width=100 ar="1:1" />
-            </@node>
-          </global-content-directory-section-flow>
-        </marko-web-query>
-
-        <marko-web-query|{ nodes }|
-          name="all-company-content"
-          params={
-            companyId: content.id,
             includeContentTypes: ["Document", "Promotion"],
             limit: 10,
-            includeLabels: "Buyers Guide Catalog",
             queryFragment,
           }
         >
@@ -171,15 +176,6 @@ $ const { $projectsGraphQL } = out.global;
             content=content
           />
         </if>
-        <else>
-          <!-- <global-gam-define-display-ad
-            name="rotation-1"
-            position="content_page"
-            aliases=aliases
-            modifiers=["max-width-300", "center", "margin-auto-x", "rail"]
-            class="mb-block"
-          /> -->
-        </else>
       </div>
     </div>
   </@section>
