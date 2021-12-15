@@ -13,9 +13,6 @@
     "./page/marko.json",
     "./search/marko.json"
   ],
-  "<global-client-side-block-loader>": {
-    "template": "./client-side-block-loader.marko"
-  },
   "<global-image-slider>": {
     "template": "./image-slider.marko"
   },
