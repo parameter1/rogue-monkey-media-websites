@@ -57,8 +57,5 @@
   },
   "<global-nrwa-site-footer>": {
     "template": "./nrwa-site-footer.marko"
-  },
-  "<global-query-total-count>": {
-    "template": "./query-total-count.marko"
   }
 }
