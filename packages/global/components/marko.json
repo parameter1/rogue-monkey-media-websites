@@ -37,9 +37,6 @@
     "<below-container>": {},
     "<foot>": {}
   },
-  "<global-recaptcha>": {
-    "template": "./recaptcha.marko"
-  },
   "<global-site-menu>": {
     "template": "./site-menu/index.marko"
   },
