@@ -55,7 +55,7 @@ $ const perPage = 16;
           </marko-web-query>
           <div class="mb-block">
             <global-query-total-count|{ totalCount }| name="magazine-active-issues" params={publicationId: id}>
-              <global-pagination-controls
+              <theme-pagination-controls
                 per-page=perPage
                 total-count=totalCount
                 path=req.path
