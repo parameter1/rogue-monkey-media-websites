@@ -10,5 +10,8 @@
   },
   "<theme-pagination-controls>": {
     "template": "./pagination-controls.marko"
+  "<theme-social-follow>": {
+    "template": "./social-follow.marko"
+  },
   }
 }
