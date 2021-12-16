@@ -27,7 +27,7 @@
     },
     "@nodes": "array"
   },
-  "<global-content-card-deck-4-col-flow>": {
-    "template": "./card-deck-4-col.marko"
+  "<global-content-card-deck-col-flow>": {
+    "template": "./card-deck-col.marko"
   }
 }

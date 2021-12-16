@@ -29,9 +29,24 @@
 }
 
 .read-next {
+  $self: &;
   margin-top: 30px;
   &__header {
     margin-bottom: 16px;
     @include skin-typography($style: "section-header-xs");
+  }
+  &--featured {
+    #{ $self } {
+      &__footer {
+        text-transform: uppercase;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        border-top: 1px solid $gray-200;
+      }
+    }
+    .node__image-wrapper+.node__body {
+      margin-left: 0;
+    }
   }
 }
