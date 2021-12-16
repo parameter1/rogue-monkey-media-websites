@@ -13,9 +13,6 @@
     "./page/marko.json",
     "./search/marko.json"
   ],
-  "<global-client-side-block-loader>": {
-    "template": "./client-side-block-loader.marko"
-  },
   "<global-image-slider>": {
     "template": "./image-slider.marko"
   },
@@ -40,15 +37,6 @@
     "<below-container>": {},
     "<foot>": {}
   },
-  "<global-menu-toggle-button>": {
-    "template": "./menu-toggle-button.marko"
-  },
-  "<global-pagination-controls>": {
-    "template": "./pagination-controls.marko"
-  },
-  "<global-recaptcha>": {
-    "template": "./recaptcha.marko"
-  },
   "<global-site-menu>": {
     "template": "./site-menu/index.marko"
   },
@@ -66,11 +54,5 @@
   },
   "<global-nrwa-site-footer>": {
     "template": "./nrwa-site-footer.marko"
-  },
-  "<global-social-follow>": {
-    "template": "./social-follow.marko"
-  },
-  "<global-query-total-count>": {
-    "template": "./query-total-count.marko"
   }
 }

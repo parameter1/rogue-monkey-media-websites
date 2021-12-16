@@ -54,13 +54,13 @@ $ const perPage = 16;
             <global-magazine-issue-archive-flow nodes=nodes flush=true />
           </marko-web-query>
           <div class="mb-block">
-            <global-query-total-count|{ totalCount }| name="magazine-active-issues" params={publicationId: id}>
-              <global-pagination-controls
+            <theme-query-total-count|{ totalCount }| name="magazine-active-issues" params={publicationId: id}>
+              <theme-pagination-controls
                 per-page=perPage
                 total-count=totalCount
                 path=req.path
               />
-            </global-query-total-count>
+            </theme-query-total-count>
           </div>
         </marko-web-resolve-page>
       </@section>

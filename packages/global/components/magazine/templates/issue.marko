@@ -17,7 +17,7 @@ $ const perPage = 50;
         count-only=true
         query-params={ issueId: id }
       >
-        <global-pagination-controls
+        <theme-pagination-controls
           per-page=perPage
           total-count=totalCount
           path=`magazine/${id}`
@@ -128,7 +128,7 @@ $ const perPage = 50;
               query-params={ issueId: id }
             >
               <if(totalCount > perPage)>
-                <global-pagination-controls
+                <theme-pagination-controls
                   per-page=perPage
                   total-count=totalCount
                   path=`magazine/${id}`

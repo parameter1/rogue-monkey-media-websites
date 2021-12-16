@@ -10,6 +10,7 @@ const fragments = require('./fragments');
 const sharedRoutes = require('./routes');
 const paginated = require('./middleware/paginated');
 const oembedHandler = require('./oembed-handler');
+const recaptcha = require('./config/recaptcha');
 
 const routes = (siteRoutes, siteConfig) => (app) => {
   // Handle submissions on /__inquiry
@@ -57,6 +58,9 @@ module.exports = (options = {}) => {
       // Setup IdentityX.
       const identityXConfig = get(options, 'siteConfig.identityX');
       set(app.locals, 'identityX', identityXConfig);
+
+      // Recaptcha
+      set(app.locals, 'recaptcha', recaptcha);
     },
     onAsyncBlockError: e => newrelic.noticeError(e),
 
