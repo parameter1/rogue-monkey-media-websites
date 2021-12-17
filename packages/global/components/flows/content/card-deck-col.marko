@@ -14,7 +14,7 @@ $ const cols = defaultValue(input.cols, 4);
         node=node
         config=nxConfig
       >
-        <global-content-node
+        <theme-content-node
           image-position="top"
           card=true
           flush=true
@@ -27,11 +27,11 @@ $ const cols = defaultValue(input.cols, 4);
           attrs=containerAttrs
         >
           <@image ar="3:2" fluid=true />
-        </global-content-node>
+        </theme-content-node>
       </marko-web-native-x-render>
     </if>
     <else>
-      <global-content-node
+      <theme-content-node
         image-position="top"
         card=true
         flush=true
@@ -42,7 +42,7 @@ $ const cols = defaultValue(input.cols, 4);
         node=node
       >
         <@image ar="3:2" fluid=true />
-      </global-content-node>
+      </theme-content-node>
     </else>
   </@slot>
 </default-theme-card-deck-flow>

@@ -11,6 +11,7 @@ $ const linkAttrs = getAsObject(input, "linkAttrs");
 $ const withSection = defaultValue(input.withSection, false);
 $ const displayImage = defaultValue(input.displayImage, true);
 $ const isFeatured = defaultValue(input.isFeatured, false);
+$ const displayFeaturedTeaser = defaultValue(input.displayFeaturedTeaser, true);
 
 $ const imageOptions = {
   w: 250,
@@ -39,16 +40,24 @@ $ const blockName = "section-feed-content-node";
       />
       <if(isFeatured)>
         <marko-web-block name=blockName modifiers=["listing-details"] >
-          <marko-web-content-teaser
-            block-name=blockName
-            obj=content
-            link={ attrs: linkAttrs }
-          />
+          <if(displayFeaturedTeaser)>
+            <marko-web-content-teaser
+              block-name=blockName
+              obj=content
+              link={ attrs: linkAttrs }
+            />
+          </if>
           <marko-web-block name=blockName modifiers=["contact-info"] >
             <marko-web-content-address1 block-name=blockName obj=content />
             <marko-web-content-address2 block-name=blockName obj=content />
             <marko-web-content-city-state-zip block-name=blockName obj=content />
             <marko-web-content-tollfree block-name=blockName obj=content />
+            <marko-web-link
+              href=content.siteContext.path
+              attrs=linkAttrs
+            >
+              Request Quote &raquo;
+            </marko-web-link>
             <marko-web-content-website
               block-name=blockName
               obj=content

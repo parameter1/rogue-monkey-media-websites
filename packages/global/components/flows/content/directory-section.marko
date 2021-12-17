@@ -20,7 +20,7 @@ $ const blockName = "read-next";
     >
       <@nodes nodes=nodes>
         <@slot|{ node }|>
-          <global-content-node
+          <theme-content-node
             image-position="left"
             ...input.node
             flush=true
@@ -28,7 +28,7 @@ $ const blockName = "read-next";
             modifiers=[blockName]
           >
             <@image width=160 ar="3:2" ...image />
-          </global-content-node>
+          </theme-content-node>
         </@slot>
       </@nodes>
     </marko-web-node-list>

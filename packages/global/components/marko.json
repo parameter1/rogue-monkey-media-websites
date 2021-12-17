@@ -9,7 +9,6 @@
     "./layouts/marko.json",
     "./magazine/marko.json",
     "./native-x/marko.json",
-    "./nodes/marko.json",
     "./page/marko.json",
     "./search/marko.json"
   ],
