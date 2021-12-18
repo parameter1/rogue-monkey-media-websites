@@ -115,11 +115,11 @@ $ const perPage = 50;
           </@section>
           <@section>
             <marko-web-query|{ nodes: issueContent }| name="magazine-scheduled-content" collapsible=false params={ issueId: id, limit: perPage, skip: p.skip({ perPage }), queryFragment: contentListFragment }>
-              <global-content-list-flow nodes=issueContent>
+              <theme-content-list-flow nodes=issueContent>
                 <@header>
                   In This Issue<if(p.page !== 1)> - Page ${p.page}</if>
                 </@header>
-              </global-content-list-flow>
+              </theme-content-list-flow>
             </marko-web-query>
 
             <global-section-feed-block|{ totalCount }|

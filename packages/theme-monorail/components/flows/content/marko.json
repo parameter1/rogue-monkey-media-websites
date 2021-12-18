@@ -1,8 +1,9 @@
 {
-  "<global-content-list-flow>": {
+  "<theme-content-list-flow>": {
     "template": "./list.marko",
     "<header>": {},
     "<body>": {},
+    "<footer>": {},
     "<node>": {
       "<attribution>": {},
       "<image>": {}
@@ -17,9 +18,10 @@
     "@flush-x": "boolean",
     "@flush-y": "boolean",
     "@class": "string",
+    "@collapsible": "boolean",
     "@modifiers": "array"
   },
-  "<global-content-directory-section-flow>": {
+  "<theme-content-directory-section-flow>": {
     "template": "./directory-section.marko",
     "<header>": {},
     "<node>": {
@@ -27,7 +29,7 @@
     },
     "@nodes": "array"
   },
-  "<global-content-card-deck-col-flow>": {
+  "<theme-content-card-deck-col-flow>": {
     "template": "./card-deck-col.marko"
   }
 }
