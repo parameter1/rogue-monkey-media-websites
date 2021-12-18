@@ -1,14 +1,10 @@
 {
   "taglib-imports": [
     "./blocks/marko.json",
-    "./client-side-blocks/marko.json",
     "./directory-facets/marko.json",
     "./flows/marko.json",
-    "./gam/marko.json",
-    "./identity-x/marko.json",
     "./layouts/marko.json",
     "./magazine/marko.json",
-    "./native-x/marko.json",
     "./page/marko.json",
     "./search/marko.json"
   ],

@@ -1,6 +1,5 @@
 import { get, getAsArray } from "@parameter1/base-cms-object-path";
 import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
-import DefineDisplayAd from "../../gam/define-display-ad";
 
 $ const { site } = out.global;
 $ const { id, type, pageNode, ...rest } = input;
@@ -25,7 +24,7 @@ $ const shouldInjectAds = ["article", "video", "news", "podcast"].includes(type)
   ...rest
 >
   <@section|{ aliases }| modifiers=["break-container", "first-sm"]>
-    <global-gam-define-display-ad
+    <theme-gam-define-display-ad
       name="leaderboard"
       position="content_page"
       aliases=aliases
@@ -81,7 +80,7 @@ $ const shouldInjectAds = ["article", "video", "news", "podcast"].includes(type)
 
         <if(shouldInjectAds && !isSponsored)>
 
-          <global-gam-inject-ads selector=`#${bodyId}` detect-embeds=true>
+          <theme-gam-inject-ads selector=`#${bodyId}` detect-embeds=true>
             $ const desktopCounts = [1000, 2750, 4500, 6250, 8000, 9750, 11500, 13250, 15000, 16750, 18500];
             <for|char| of=desktopCounts>
               <!-- desktop/tablet only -->
@@ -103,7 +102,7 @@ $ const shouldInjectAds = ["article", "video", "news", "podcast"].includes(type)
                 modifiers=["max-width-970", "margin-auto-x", "inline-content"]
               />
             </for>
-          </global-gam-inject-ads>
+          </theme-gam-inject-ads>
         </if>
 
         <marko-web-content-body block-name=blockName obj=content attrs={ id: bodyId } />
@@ -148,7 +147,7 @@ $ const shouldInjectAds = ["article", "video", "news", "podcast"].includes(type)
         </if>
 
         <if(displayComments)>
-          <global-identity-x-comment-stream content=content />
+          <theme-identity-x-comment-stream content=content />
         </if>
 
         <if(displayReadNext)>
@@ -164,7 +163,7 @@ $ const shouldInjectAds = ["article", "video", "news", "podcast"].includes(type)
 
   <if(showBottomAdBlock)>
     <@section|{ aliases }|>
-      <global-gam-define-display-ad
+      <theme-gam-define-display-ad
         name="rotation"
         position="content_page"
         aliases=aliases
