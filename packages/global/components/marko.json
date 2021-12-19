@@ -4,7 +4,6 @@
     "./directory-facets/marko.json",
     "./layouts/marko.json",
     "./magazine/marko.json",
-    "./page/marko.json",
     "./search/marko.json"
   ],
   "<global-image-slider>": {
