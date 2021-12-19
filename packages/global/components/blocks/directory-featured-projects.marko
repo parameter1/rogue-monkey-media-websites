@@ -54,8 +54,8 @@ $ const convertEntry = (entry) => {
 
   <marko-web-resolve|{ resolved }| promise=graphqlClient.query({ query, variables })>
     $ const nodes = getAsArray(resolved, "data.entries.edges").map(edge => convertEntry(edge.node));
-    <global-content-directory-section-flow nodes=nodes>
+    <theme-content-directory-section-flow nodes=nodes>
       <@header>Projects Featured in the Architectural Showcase</@header>
-    </global-content-directory-section-flow>
+    </theme-content-directory-section-flow>
   </marko-web-resolve>
 </if>
