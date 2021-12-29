@@ -1,7 +1,7 @@
 const GAMConfiguration = require('@parameter1/base-cms-marko-web-gam/config');
 
 module.exports = ({
-  accountId = '000',
+  accountId = '22662719275',
   basePath,
 } = {}) => {
   const config = new GAMConfiguration(accountId, { basePath });
