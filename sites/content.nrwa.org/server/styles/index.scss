@@ -11,6 +11,11 @@ $primary: #103a57;
 
 @import "../../node_modules/@rogue-monkey-media/package-global/scss/core";
 
+.page {
+  &--content-company {
+    margin-top: 2rem;
+  }
+}
 
 .site-header {
   .site-navbar {
