@@ -120,6 +120,7 @@ $primary: #103a57;
 .site-footer .wave-wrapper {
   position: absolute;
   top: -54px;
+  z-index: -1;
   width: 100%;
   height: calc(100% + 54px);
   overflow: hidden;
