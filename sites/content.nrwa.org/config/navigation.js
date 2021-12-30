@@ -41,7 +41,7 @@ const desktopMenu = {
   about: [
     ...utilities,
     { href: 'https://nrwa.org/annual_events/', label: 'Events' },
-    { href: '#', label: 'Subscribe' },
+    { href: '/page/subscribe', label: 'Subscribe' },
     { href: '/page/privacy-policy', label: 'Privacy Policy' },
   ],
   sections: [
@@ -94,8 +94,8 @@ module.exports = {
       { href: '/page/contact-us', label: 'Contact Us' },
     ],
     subscribe: [
-      { href: '/', label: 'Sign up to receive weekly updates from NRWA', target: '_blank' },
-      { href: '/', label: 'Sign up for Rural Water Magazine', target: '_blank' },
+      { href: '/page/subscribe', label: 'Sign up to receive weekly updates from NRWA' },
+      { href: '/page/subscribe', label: 'Sign up for Rural Water Magazine' },
     ],
     items: [
       { href: '/page/privacy-policy', label: 'Privacy Policy' },
