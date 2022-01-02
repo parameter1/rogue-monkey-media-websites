@@ -61,8 +61,8 @@
     "template": "./opinion.marko",
     "@alias" : "string"
   },
-  "<global-partners-in-business-block>": {
-    "template": "./partners-in-business.marko"
+  "<global-section-card-list-block>": {
+    "template": "./section-card-list.marko"
   },
   "<global-section-card-deck-featured-block>": {
     "template": "./section-card-deck-featured.marko"
