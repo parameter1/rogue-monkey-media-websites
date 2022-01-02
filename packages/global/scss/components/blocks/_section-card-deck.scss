@@ -1,4 +1,4 @@
-.reader-rigs {
+.section-card-deck {
   &__header {
     @include skin-typography($style: "section-header");
   }
@@ -59,7 +59,7 @@
 .node {
   $self: &;
 
-  &--reader-rigs {
+  &--section-card-deck {
     #{ $self } {
       &__title {
         @include skin-typography($style: "header-3", $link-style: "primary");

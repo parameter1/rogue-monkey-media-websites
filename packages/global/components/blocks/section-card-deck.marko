@@ -1,8 +1,6 @@
-import queryFragment from "../../graphql/fragments/reader-rigs-block";
+import queryFragment from "../../graphql/fragments/section-card-deck-block";
 import sectionFragment from "../../graphql/fragments/section-info";
 
-
-<!-- @todo likely should change the name of this component -->
 $ const queryParams = {
   sectionAlias: input.alias,
   requiresImage: true,
@@ -11,7 +9,7 @@ $ const queryParams = {
   sectionFragment,
 };
 
-$ const blockName = "reader-rigs";
+$ const blockName = "section-card-deck";
 
 <marko-web-query|{ nodes, section }| name="website-scheduled-content" params=queryParams>
   <marko-web-block name=blockName>
@@ -21,7 +19,6 @@ $ const blockName = "reader-rigs";
     <marko-web-element block-name=blockName name="description-wrapper">
       <marko-web-element block-name=blockName name="description">
         $!{section.description || input.defaultDescription}
-        <!-- Custom rigs submitted by our readers -->
       </marko-web-element>
       <marko-web-element block-name=blockName name="view-more">
         <marko-web-link href=section.canonicalPath>

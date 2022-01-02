@@ -76,8 +76,8 @@
   "<global-primary-image-block>": {
     "template": "./primary-image.marko"
   },
-  "<global-reader-rigs-block>": {
-    "template": "./reader-rigs.marko",
+  "<global-section-card-deck-block>": {
+    "template": "./section-card-deck.marko",
     "@alias" : "string",
     "@default-description": "string"
   },
