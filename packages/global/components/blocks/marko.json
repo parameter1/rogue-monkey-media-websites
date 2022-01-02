@@ -64,8 +64,8 @@
   "<global-partners-in-business-block>": {
     "template": "./partners-in-business.marko"
   },
-  "<global-pib-featured-block>": {
-    "template": "./pib-featured.marko"
+  "<global-section-card-deck-featured-block>": {
+    "template": "./section-card-deck-featured.marko"
   },
   "<global-ovd-pib-manual-promo-block>": {
     "template": "./ovd-pib-manual-promo.marko"
