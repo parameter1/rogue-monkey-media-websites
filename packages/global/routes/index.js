@@ -1,12 +1,12 @@
 const htmlSitemap = require('@parameter1/base-cms-marko-web-html-sitemap/routes');
+const renderBlock = require('@rogue-monkey-media/package-theme-monorail/routes/render-block');
+const search = require('@rogue-monkey-media/package-theme-monorail/routes/search');
 const identityX = require('./identity-x');
 const magazine = require('../components/magazine/routes');
 const nativeX = require('./native-x');
 const printContent = require('./print-content');
 const publicFiles = require('./public-files');
 const redirects = require('./redirects');
-const renderBlock = require('./render-block');
-const search = require('./search');
 
 module.exports = (app, siteConfig) => {
   // IdentityX (user routing and app context)

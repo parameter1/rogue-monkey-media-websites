@@ -5,7 +5,7 @@ const template = require('../templates/search');
 
 module.exports = (app, siteConfig) => {
   const {
-    contentTypes = ['Article', 'Company', 'Podcast', 'Product', 'Video'],
+    contentTypes = ['Article', 'Blog', 'Company', 'Podcast', 'Product', 'Video', 'Whitepaper'],
     assignedToWebsiteSectionIds,
   } = getAsObject(siteConfig, 'search');
   const config = new MarkoWebSearchConfig({
