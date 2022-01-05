@@ -6,15 +6,15 @@ $ const queryParams = {
   requiresImage: true,
   queryFragment,
   sectionAlias: "home",
-  optionName: "Pinned",
   ...input.queryParams,
 };
 $ const blockName = "top-stories";
 $ const withHeader = defaultValue(input.withHeader, true);
 $ const withNativeX = defaultValue(input.withNativeX, true);
 $ const lazyload = defaultValue(input.lazyload, true);
+$ const queryName = (queryParams.optionName) ? "website-optioned-content" : "website-scheduled-content";
 
-<marko-web-query|{ nodes }| name="website-optioned-content" params=queryParams>
+<marko-web-query|{ nodes }| name=queryName params=queryParams>
   <if(nodes.length)>
     $ const heroNode = nodes.slice(0, 1)[0];
     $ const heroImageNode = {
