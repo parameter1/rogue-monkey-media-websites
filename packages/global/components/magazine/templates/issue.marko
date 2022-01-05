@@ -12,7 +12,7 @@ $ const perPage = 50;
       <marko-web-gtm-push data=context />
     </marko-web-gtm-magazine-issue-context>
     <marko-web-resolve-page|{ data: issue }| node=pageNode>
-      <global-section-feed-block|{ totalCount }|
+      <theme-section-feed-block|{ totalCount }|
         query-name="magazine-scheduled-content"
         count-only=true
         query-params={ issueId: id }
@@ -23,7 +23,7 @@ $ const perPage = 50;
           path=`magazine/${id}`
           as-rels=true
         />
-      </global-section-feed-block>
+      </theme-section-feed-block>
     </marko-web-resolve-page>
   </@head>
   <@page>
@@ -122,7 +122,7 @@ $ const perPage = 50;
               </theme-content-list-flow>
             </marko-web-query>
 
-            <global-section-feed-block|{ totalCount }|
+            <theme-section-feed-block|{ totalCount }|
               query-name="magazine-scheduled-content"
               count-only=true
               query-params={ issueId: id }
@@ -134,7 +134,7 @@ $ const perPage = 50;
                   path=`magazine/${id}`
                 />
               </if>
-            </global-section-feed-block>
+            </theme-section-feed-block>
           </@section>
       </marko-web-page-wrapper>
     </marko-web-resolve-page>
