@@ -40,7 +40,7 @@ module.exports = {
   ],
   podcastLinks: [],
   gtm: {
-    containerId: 'NOT_SET',
+    containerId: 'GTM-TQLXKT6',
   },
   wufoo: {
     userName: 'NOT_SET',

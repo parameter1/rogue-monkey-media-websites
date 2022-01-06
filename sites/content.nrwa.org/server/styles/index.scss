@@ -11,6 +11,11 @@ $primary: #103a57;
 
 @import "../../node_modules/@rogue-monkey-media/package-global/scss/core";
 
+.page {
+  &--content-company {
+    margin-top: 2rem;
+  }
+}
 
 .site-header {
   .site-navbar {
@@ -115,6 +120,7 @@ $primary: #103a57;
 .site-footer .wave-wrapper {
   position: absolute;
   top: -54px;
+  z-index: -1;
   width: 100%;
   height: calc(100% + 54px);
   overflow: hidden;
@@ -140,4 +146,13 @@ $primary: #103a57;
   background-image: url("https://p1-cms-assets.imgix.net/files/base/roguemonkeymedia/all/image/static/nrwa/nrwa-waves-footer.png");
   background-repeat: no-repeat;
   animation: movehorz3 64s linear infinite alternate;
+}
+
+.site-menu {
+  &__contents-desktop {
+    padding-top: 60px;
+  }
+  &__contents-mobile {
+    padding-top: 50px;
+  }
 }

@@ -14,15 +14,6 @@ $ const { $projectsGraphQL } = out.global;
   page-node=pageNode
   ...rest
 >
-  <@section|{ aliases }| modifiers=["first-sm"]>
-    <theme-gam-define-display-ad
-      name="leaderboard"
-      position="content_page"
-      aliases=aliases
-      modifiers=["inter-block"]
-    />
-  </@section>
-
   <@section|{ aliases, blockName, content }| modifiers=["content-header"]>
     $ const { primarySection } = content;
     $ const videos = getAsArray(content, "videos.edges").map(({ node }) => node);
@@ -178,15 +169,6 @@ $ const { $projectsGraphQL } = out.global;
         </if>
       </div>
     </div>
-  </@section>
-
-  <@section|{ aliases }|>
-    <theme-gam-define-display-ad
-      name="rotation"
-      position="content_page"
-      aliases=aliases
-      modifiers=["inter-block"]
-    />
   </@section>
 
   <for|s| of=sections>

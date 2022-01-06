@@ -16,6 +16,7 @@ $ const currentPage = search.getCurrentPage();
 >
   <@section|{ aliases }| modifiers=["first"]>
     <theme-gam-define-display-ad
+      name="leaderboard"
       position="section_page"
       aliases=aliases
       modifiers=["inter-block"]
@@ -99,7 +100,12 @@ $ const currentPage = search.getCurrentPage();
                   >
                     <@nodes nodes=nodes>
                       <@slot|{ node }|>
-                        <theme-directory-section-feed-content-node node=node with-dates=false is-featured=true />
+                        <theme-directory-section-feed-content-node
+                          node=node
+                          with-dates=false
+                          request-quote=false
+                          is-featured=true
+                        />
                       </@slot>
                     </@nodes>
                   </marko-web-node-list>
@@ -116,7 +122,12 @@ $ const currentPage = search.getCurrentPage();
                 >
                   <@nodes nodes=nodes>
                     <@slot|{ node }|>
-                      <theme-directory-section-feed-content-node node=node with-teaser=false display-image=false with-dates=false />
+                      <theme-directory-section-feed-content-node
+                        node=node
+                        with-teaser=false
+                        display-image=false
+                        with-dates=false
+                      />
                     </@slot>
                   </@nodes>
                 </marko-web-node-list>
@@ -130,11 +141,11 @@ $ const currentPage = search.getCurrentPage();
       </div>
     </div>
   </@section>
-  <@section>
+  <!-- <@section>
     <theme-gam-define-display-ad
       name="rotation"
       position="static_page"
       modifiers=["inter-block"]
     />
-  </@section>
+  </@section> -->
 </global-website-section-default-layout>

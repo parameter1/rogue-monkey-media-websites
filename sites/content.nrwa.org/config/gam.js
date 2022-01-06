@@ -1,6 +1,6 @@
 const configureGAM = require('@rogue-monkey-media/package-global/config/gam');
 
-const config = configureGAM({ basePath: 'nrwa' });
+const config = configureGAM({ basePath: 'NRWA_Content_Portal_V2' });
 
 config.lazyLoad = {
   enabled: true, // set to true to enable lazy loading
@@ -18,7 +18,7 @@ config
     { name: 'inline-content-desktop', templateName: 'INLINE-CONTENT-DESKTOP', path: 'rotation' },
   ]);
 
-const aliases = [];
+const aliases = ['resource-guide'];
 
 aliases.forEach(alias => config.setAliasAdUnits(alias, [
   { name: 'leaderboard', templateName: 'LEADERBOARD', path: `${alias}-leaderboard` },
