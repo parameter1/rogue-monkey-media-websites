@@ -1,6 +1,6 @@
 import { getAsObject } from "@parameter1/base-cms-object-path";
 import issueFragment from "../graphql/fragments/magazine-issue-archive";
-import contentListFragment from "../../../graphql/fragments/content-list"
+import contentListFragment from "@rogue-monkey-media/package-theme-monorail/graphql/fragments/content-list"
 
 $ const { site, pagination: p } = out.global;
 $ const { id, pageNode } = data;
@@ -12,7 +12,7 @@ $ const perPage = 50;
       <marko-web-gtm-push data=context />
     </marko-web-gtm-magazine-issue-context>
     <marko-web-resolve-page|{ data: issue }| node=pageNode>
-      <global-section-feed-block|{ totalCount }|
+      <theme-section-feed-block|{ totalCount }|
         query-name="magazine-scheduled-content"
         count-only=true
         query-params={ issueId: id }
@@ -23,7 +23,7 @@ $ const perPage = 50;
           path=`magazine/${id}`
           as-rels=true
         />
-      </global-section-feed-block>
+      </theme-section-feed-block>
     </marko-web-resolve-page>
   </@head>
   <@page>
@@ -115,14 +115,14 @@ $ const perPage = 50;
           </@section>
           <@section>
             <marko-web-query|{ nodes: issueContent }| name="magazine-scheduled-content" collapsible=false params={ issueId: id, limit: perPage, skip: p.skip({ perPage }), queryFragment: contentListFragment }>
-              <global-content-list-flow nodes=issueContent>
+              <theme-content-list-flow nodes=issueContent>
                 <@header>
                   In This Issue<if(p.page !== 1)> - Page ${p.page}</if>
                 </@header>
-              </global-content-list-flow>
+              </theme-content-list-flow>
             </marko-web-query>
 
-            <global-section-feed-block|{ totalCount }|
+            <theme-section-feed-block|{ totalCount }|
               query-name="magazine-scheduled-content"
               count-only=true
               query-params={ issueId: id }
@@ -134,7 +134,7 @@ $ const perPage = 50;
                   path=`magazine/${id}`
                 />
               </if>
-            </global-section-feed-block>
+            </theme-section-feed-block>
           </@section>
       </marko-web-page-wrapper>
     </marko-web-resolve-page>

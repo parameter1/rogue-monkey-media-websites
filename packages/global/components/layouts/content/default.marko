@@ -69,7 +69,7 @@ $ const shouldInjectAds = ["article", "video", "news", "podcast", "press-release
           $ let forceDisplay;
           $ if (type === "contact") forceDisplay = "left";
           $ if (type === "video") forceDisplay = "none";
-          <global-primary-image-block
+          <theme-primary-image-block
             obj=content.primaryImage
             force-display=forceDisplay;
           />
@@ -133,9 +133,8 @@ $ const shouldInjectAds = ["article", "video", "news", "podcast", "press-release
           </for>
         </if>
         <!-- remove this when reworking newsletter signup -->
-        <global-newsletter-signup-banner-static-block />
         <if(displayNewsletterSignup)>
-          <global-newsletter-signup-banner-block />
+          <theme-newsletter-signup-banner-block />
         </if>
 
         <if(displaySocialShare)>
@@ -151,7 +150,7 @@ $ const shouldInjectAds = ["article", "video", "news", "podcast", "press-release
         </if>
 
         <if(displayReadNext)>
-          <global-read-next-block
+          <theme-read-next-block
             content-id=id
             section-id=primarySection.id
             published=content.published
@@ -173,7 +172,7 @@ $ const shouldInjectAds = ["article", "video", "news", "podcast", "press-release
   </if>
 
   <@section|{ content }|>
-    <global-related-stories-block
+    <theme-related-stories-block
       content-id=content.id
       section-id=content.primarySection.id
     />

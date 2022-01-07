@@ -2,22 +2,6 @@
   "taglib-imports": [
     "./promos/marko.json"
   ],
-  "<global-callout-cards-block>": {
-    "template": "./callout-cards.marko",
-    "@slots <slot>[]": {}
-  },
-  "<global-full-width-native-ad-block>": {
-    "template": "./full-width-native-ad.marko"
-  },
-  "<global-gear-block>": {
-    "template": "./gear.marko"
-  },
-  "<global-hero-card-block>": {
-    "template": "./hero-card.marko",
-    "@alias": "string",
-    "@description": "string",
-    "@query-params": "object"
-  },
   "<global-directory-featured-projects-block>": {
     "template": "./directory-featured-projects.marko",
     "@graphql-client": "object",
@@ -26,105 +10,5 @@
   "<global-directory-sections-block>": {
     "template": "./directory-sections.marko",
     "@schedules": "array"
-  },
-  "<global-latest-podcast-block>": {
-    "template": "./latest-podcast.marko"
-  },
-  "<global-latest-products-feed-block>": {
-    "template": "./latest-products-feed.marko",
-    "<query-params>": {},
-    "@alias": "string",
-    "@count-only": "boolean"
-  },
-  "<global-more-gear-block>": {
-    "template": "./more-gear.marko"
-  },
-  "<global-most-popular-block>": {
-    "template": "./most-popular.marko"
-  },
-  "<global-most-popular-temp-block>": {
-    "template": "./most-popular-temp.marko"
-  },
-  "<global-read-next-block>": {
-    "template": "./read-next.marko"
-  },
-  "<global-newsletter-signup-banner-block>": {
-    "template": "./newsletter-signup-banner.marko"
-  },
-  "<global-newsletter-signup-banner-static-block>": {
-    "template": "./newsletter-signup-banner-static.marko"
-  },
-  "<global-newsletter-signup-banner-large-block>": {
-    "template": "./newsletter-signup-banner-large.marko"
-  },
-  "<global-opinion-block>": {
-    "template": "./opinion.marko",
-    "@alias" : "string"
-  },
-  "<global-partners-in-business-block>": {
-    "template": "./partners-in-business.marko"
-  },
-  "<global-pib-featured-block>": {
-    "template": "./pib-featured.marko"
-  },
-  "<global-ovd-pib-manual-promo-block>": {
-    "template": "./ovd-pib-manual-promo.marko"
-  },
-  "<global-eqw-coty-promo-block>": {
-    "template": "./eqw-coty-promo.marko"
-  },
-  "<global-primary-image-block>": {
-    "template": "./primary-image.marko"
-  },
-  "<global-reader-rigs-block>": {
-    "template": "./reader-rigs.marko",
-    "@alias" : "string",
-    "@default-description": "string"
-  },
-  "<global-reader-rigs-submit-block>": {
-    "template": "./reader-rigs-submit.marko"
-  },
-  "<global-related-stories-block>": {
-    "template": "./related-stories.marko"
-  },
-  "<global-resource-library-block>": {
-    "template": "./resource-library.marko"
-  },
-  "<global-white-papers-block>": {
-    "template": "./white-papers.marko"
-  },
-  "<global-section-body-feed-block>": {
-    "template": "./section-body-feed.marko",
-    "<query-params>": {},
-    "<node>": {},
-    "@alias": "string",
-    "@count-only": "boolean"
-  },
-  "<global-section-feed-block>": {
-    "template": "./section-feed.marko",
-    "<query-params>": {},
-    "<node>": {},
-    "@alias": "string",
-    "@count-only": "boolean",
-    "@lazyload": "boolean",
-    "@query-name": "string"
-  },
-  "<global-section-title-feed-block>": {
-    "template": "./section-title-feed.marko",
-    "<query-params>": {},
-    "@alias": "string",
-    "@count-only": "boolean"
-  },
-  "<global-section-list-block>": {
-    "template": "./section-list.marko"
-  },
-  "<global-section-list-deck-block>": {
-    "template": "./section-list-deck.marko"
-  },
-  "<global-top-stories-block>": {
-    "template": "./top-stories.marko"
-  },
-  "<global-top-stories-menu-block>": {
-    "template": "./top-stories-menu.marko"
   }
 }

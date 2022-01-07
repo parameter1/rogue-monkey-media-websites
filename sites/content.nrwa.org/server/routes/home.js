@@ -1,5 +1,5 @@
 const { withWebsiteSection } = require('@parameter1/base-cms-marko-web/middleware');
-const queryFragment = require('@rogue-monkey-media/package-global/graphql/fragments/website-section-page');
+const queryFragment = require('@rogue-monkey-media/package-theme-monorail/graphql/fragments/website-section-page');
 const home = require('../templates/index');
 
 module.exports = (app) => {
