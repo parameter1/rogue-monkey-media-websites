@@ -4,7 +4,7 @@ const AutoScroll = () => import(/* webpackChunkName: "global-auto-scroll" */ './
 const ImageSlider = () => import(/* webpackChunkName: "global-image-slider" */ './image-slider.vue');
 
 export default (Browser) => {
-  ThemeMonorail(Browser);
+  ThemeMonorail(Browser, { enableOmedaIdentityX: false });
 
   Browser.register('GlobalImageSlider', ImageSlider);
   Browser.register('GlobalAutoScroll', AutoScroll);
