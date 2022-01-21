@@ -10,8 +10,6 @@ const ThemeBlockLoader = () => import(/* webpackChunkName: "theme-block-loader" 
 const ThemeMenuToggleButton = () => import(/* webpackChunkName: "theme-menu-toggle-button" */ './menu-toggle-button.vue');
 const ThemeWufooForm = () => import(/* webpackChunkName: "theme-wufoo-form" */ './wufoo-form.vue');
 const ThemeCommentToggleButton = () => import(/* webpackChunkName: "theme-comment-toggle-button" */ './comment-toggle-button.vue');
-const IdentityXAuthenticate = () => import(/* webpackChunkName: "theme-identity-x-authenticate" */ './identity-x/authenticate.vue');
-const IdentityXCommentStream = () => import(/* webpackChunkName: "theme-identity-x-comment-stream" */ './identity-x/comments/stream.vue');
 
 export default (Browser) => {
   GTM(Browser);
@@ -20,10 +18,7 @@ export default (Browser) => {
   SocialSharing(Browser);
   NativeX(Browser);
   Inquiry(Browser);
-  IdentityX(Browser, {
-    CustomAuthenticateComponent: IdentityXAuthenticate,
-    CustomCommentStreamComponent: IdentityXCommentStream,
-  });
+  IdentityX(Browser);
   Browser.register('ThemeBlockLoader', ThemeBlockLoader);
   Browser.register('ThemeMenuToggleButton', ThemeMenuToggleButton);
   Browser.register('ThemeCommentToggleButton', ThemeCommentToggleButton);
