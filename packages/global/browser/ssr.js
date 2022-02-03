@@ -1,5 +1,5 @@
-import GlobalMenuToggleButton from './menu-toggle-button.vue';
+import ThemeSSRComponents from '@rogue-monkey-media/package-theme-monorail/browser/ssr';
 
 export default {
-  GlobalMenuToggleButton,
+  ...ThemeSSRComponents,
 };

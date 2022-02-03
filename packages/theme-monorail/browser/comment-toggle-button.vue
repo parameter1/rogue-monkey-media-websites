@@ -4,19 +4,15 @@
     type="button"
     @click="toggle"
   >
-    <span>{{ label }} Comments ({{ totalCount }})</span>
-    <component :is="arrow" class="comment-toggle-arrow" />
+    <span>View All Comments</span>
   </button>
 </template>
 
 <script>
 import EventBus from '@parameter1/base-cms-marko-web/browser/event-bus';
 import get from '@parameter1/base-cms-marko-web-identity-x/browser/utils/get';
-import ArrowUp from '@parameter1/base-cms-marko-web-icons/browser/triangle-up.vue';
-import ArrowDown from '@parameter1/base-cms-marko-web-icons/browser/triangle-down.vue';
 
 export default {
-  components: { ArrowUp, ArrowDown },
 
   props: {
     identifier: {
@@ -26,6 +22,10 @@ export default {
     classes: {
       type: String,
       default: null,
+    },
+    isExpanded: {
+      type: Boolean,
+      default: false,
     },
     targets: {
       type: Array,
@@ -44,18 +44,8 @@ export default {
     totalCount: 0,
   }),
 
-  computed: {
-    label() {
-      if (this.expanded) return 'Hide';
-      return 'Show';
-    },
-    arrow() {
-      if (this.expanded) return ArrowUp;
-      return ArrowDown;
-    },
-  },
-
   created() {
+    this.expanded = this.isExpanded;
     this.loadCount();
   },
 
@@ -74,7 +64,6 @@ export default {
       } catch (e) {
         this.error = e;
       } finally {
-        this.toggle();
         this.isLoading = false;
       }
     },
