@@ -1,5 +1,5 @@
 module.exports = {
-  contentTypes: ['Article', 'Blog', 'Company', 'News', 'Podcast', 'PressRelease', 'Product', 'Video', 'Whitepaper'],
+  contentTypes: ['Article', 'Company', 'News', 'PressRelease', 'Product', 'Video'],
   assignedToWebsiteSectionIds: [
     82655,
     82648,
