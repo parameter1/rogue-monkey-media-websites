@@ -22,8 +22,14 @@
   "<theme-recaptcha>": {
     "template": "./recaptcha.marko"
   },
+  "<theme-site-footer>": {
+    "template": "./site-footer.marko"
+  },
   "<theme-site-menu>": {
     "template": "./site-menu/index.marko"
+  },
+  "<theme-site-newsletter-menu>": {
+    "template": "./site-newsletter-menu.marko"
   },
   "<theme-social-follow>": {
     "template": "./social-follow.marko"
