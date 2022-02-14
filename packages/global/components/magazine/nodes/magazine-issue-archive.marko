@@ -19,6 +19,7 @@ $ const alt = `${publication.name} ${issue.name}`;
     ar="3:4"
     width=defaultValue(input.imageWidth, 400)
     link={ href: issue.canonicalPath, title: alt }
+    options={ fit: "max" }
   />
   <@body>
     <@title tag="h5" show=defaultValue(input.withTitle, true)>
