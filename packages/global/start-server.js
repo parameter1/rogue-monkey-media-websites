@@ -44,6 +44,10 @@ module.exports = (options = {}) => {
       // Use paginated middleware
       app.use(paginated());
 
+      // i18n
+      const i18n = v => v;
+      set(app.locals, 'i18n', options.i18n || i18n);
+
       // Use paginated middleware
       app.use(htmlSitemapPagination());
 
