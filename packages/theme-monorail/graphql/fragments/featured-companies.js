@@ -2,7 +2,7 @@ const gql = require('graphql-tag');
 
 module.exports = gql`
 
-fragment PMMIFeaturedCompaniesFragment on Content {
+fragment FeaturedCompaniesInContentFragment on Content {
   id
   type
   typeTitled: type(input: { format: titleize })

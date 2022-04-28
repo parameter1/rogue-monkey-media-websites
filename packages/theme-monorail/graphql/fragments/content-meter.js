@@ -1,18 +1,17 @@
 const gql = require('graphql-tag');
 
 module.exports = gql`
-
-fragment LeadershipCompanyFragment on Content {
+fragment ContentMeterFragment on Content {
   id
   name
+  labels
   siteContext {
     path
+    canonicalUrl
   }
-  ... on ContentCompany {
-    youtube {
-      url
-    }
+  primarySection {
+    id
+    alias
   }
 }
-
 `;

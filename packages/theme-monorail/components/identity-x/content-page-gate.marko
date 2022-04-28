@@ -1,7 +1,7 @@
 import { getAsObject } from "@parameter1/base-cms-object-path";
 import defaultValue  from "@parameter1/base-cms-marko-core/utils/default-value";
 
-$ const { config } = out.global;
+$ const { config, site } = out.global;
 
 $ const blockName = "content-page-gate";
 $ const {
@@ -10,10 +10,18 @@ $ const {
   hasRequiredAccessLevel,
   requiresAccessLevel,
   requiresUserInput,
+  profileCallToAction,
+  profileButtonLabel,
+  loginEventName,
+  profileEventName,
 } = input;
 $ const messages = getAsObject(input, "messages");
 $ const title = defaultValue(input.title, "Log in to view the full article");
+$ const profileConfirmation= defaultValue(input.profielConfirmation, 'Email Confirmed!')
 $ const userInputTitle = defaultValue(input.userInputTitle, "Complete your profile to view the full article");
+$ const additionalEventData = {
+  promoCode: site.get("contentMetering.promoCode", undefined),
+};
 
 <marko-web-block name=blockName>
   <if(!canAccess)>
@@ -37,17 +45,31 @@ $ const userInputTitle = defaultValue(input.userInputTitle, "Complete your profi
       </marko-web-element>
 
       <marko-web-element name="form-wrapper" block-name=blockName>
-        <marko-web-identity-x-form-register />
+        <marko-web-identity-x-form-login
+          additional-event-data=additionalEventData
+          source=loginEventName
+        />
       </marko-web-element>
     </else>
   </if>
   <else-if(isLoggedIn && requiresUserInput)>
+    <if(profileConfirmation)>
+      <marko-web-element name="confirmation" block-name=blockName>
+        ${profileConfirmation}
+      </marko-web-element>
+    </if>
     <marko-web-element tag="h5" name="title" block-name=blockName>
       ${userInputTitle}
     </marko-web-element>
 
     <marko-web-element name="form-wrapper" block-name=blockName>
-      <marko-web-identity-x-form-profile reload-page-on-submit=true />
+      <marko-web-identity-x-form-profile
+        call-to-action=profileCallToAction
+        button-label=profileButtonLabel
+        reload-page-on-submit=true
+        additional-event-data=additionalEventData
+        login-source=profileEventName
+      />
     </marko-web-element>
   </else-if>
 </marko-web-block>
