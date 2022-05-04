@@ -106,6 +106,13 @@ fragment ContentPageFragment on Content {
         fullName
       }
     }
+    numberOfEmployees
+    trainingInformation
+    yearsInOperation
+    servicesProvided
+    productSummary
+    serviceInformation
+    warrantyInformation
     youtube {
       url
     }

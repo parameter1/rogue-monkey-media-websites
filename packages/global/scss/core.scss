@@ -23,6 +23,13 @@
   }
 }
 
+.page-contents {
+  &__additional-company-info {
+    padding-bottom: 24px;
+    font-size: 20px;
+  }
+}
+
 
 // skin components
 @import "./components/carousel";
