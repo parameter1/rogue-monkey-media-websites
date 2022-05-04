@@ -42,13 +42,52 @@ $ const { $projectsGraphQL } = out.global;
               />
             </if>
             <global-content-company-details obj=content />
+            $ const { numberOfEmployees, yearsInOperation } = content;
+            <if(yearsInOperation)>
+              <div><b>Years In Operation:</b> ${yearsInOperation}</div>
+            </if>
+            <if(numberOfEmployees)>
+              <div><b>Number Of Employees:</b> ${numberOfEmployees}</div>
+            </if>
           </marko-web-block>
         </div>
 
         <div class="content-page-body">
+            $ const {
+              trainingInformation,
+              servicesProvided,
+              productSummary,
+              serviceInformation,
+              warrantyInformation
+            } = content;
           <default-theme-page-contents|{ blockName }| attrs={ "data-gallery-id": id }>
             $ const bodyId = `content-body-${content.id}`;
             <marko-web-content-body block-name=blockName obj=content attrs={ id: bodyId } />
+            <if(trainingInformation)>
+              <div class="page-contents__additional-company-info">
+                <b>Training Information:</b> ${trainingInformation}
+              </div>
+            </if>
+            <if(servicesProvided)>
+              <div class="page-contents__additional-company-info">
+                <b>Services Provided:</b> ${servicesProvided}
+              </div>
+            </if>
+            <if(productSummary)>
+              <div class="page-contents__additional-company-info">
+                <b>Product Summary:</b> ${productSummary}
+              </div>
+            </if>
+            <if(serviceInformation)>
+              <div class="page-contents__additional-company-info">
+                <b>Service Information:</b> ${serviceInformation}
+              </div>
+            </if>
+            <if(warrantyInformation)>
+              <div class="page-contents__additional-company-info">
+                <b>Warranty Information:</b> ${warrantyInformation}
+              </div>
+            </if>
           </default-theme-page-contents>
         </div>
 
