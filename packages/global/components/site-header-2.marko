@@ -22,7 +22,7 @@ $ const headerColClass = promo ? "col-lg-4" : "col-lg-6";
 >
   <${input.aboveNav} />
 
-  <default-theme-site-navbar modifiers=["top"]>
+  <default-theme-site-navbar modifiers=["top"] attrs={ "aria-label": "Top Navigation" }>
     <if(promo)>
       <div class=`${headerColClass} site-navbar__left`>
         $ const promoSrc = get(promo, "image.src");
@@ -74,7 +74,7 @@ $ const headerColClass = promo ? "col-lg-4" : "col-lg-6";
     </div>
   </default-theme-site-navbar>
 
-  <default-theme-site-navbar modifiers=["primary"]>
+  <default-theme-site-navbar modifiers=["primary"] attrs={ "aria-label": "Primary Navigation" }>
     <default-theme-site-navbar-items
       items=navigation.primary
       modifiers=["primary"]
