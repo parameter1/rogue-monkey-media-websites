@@ -35,7 +35,7 @@ $ const shouldInjectAds = ["article", "video", "news", "podcast", "press-release
 
   <@section|{ blockName, content, aliases, authors }| modifiers=["content-header"]>
     $ const { primarySection } = content;
-    <div class="content-page-header">
+    <div class="content-page-header" role="region" aria-label="Content Information">
       <theme-content-page-breadcrumbs section=primarySection />
       <marko-web-content-name tag="h1" block-name=blockName obj=content />
       <marko-web-content-teaser block-name=blockName obj=content />
@@ -58,7 +58,7 @@ $ const shouldInjectAds = ["article", "video", "news", "podcast", "press-release
 
   <@section|{ aliases, content, authors }|>
     $ const { primarySection } = content;
-    <div class="content-page-body">
+    <div class="content-page-body" role="region" aria-label="Content Body">
       <default-theme-page-contents|{ blockName }| attrs={ "data-gallery-id": id }>
         <if(content.embedCode)>
           <marko-web-content-embed-code block-name=blockName obj=content />
