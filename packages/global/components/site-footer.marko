@@ -14,7 +14,7 @@ $ const tagline = site.get("tagline");
   modifiers=input.modifiers
   attrs=input.attrs
 >
-  <default-theme-site-footer-container block-name=blockName modifiers=["secondary"]>
+  <default-theme-site-footer-container block-name=blockName modifiers=["secondary"] attrs={ "aria-label": "Secondary Footer" }>
     <marko-web-element block-name=blockName name="inner-container">
 
       <default-theme-site-navbar-brand block-name=blockName title=`${config.website("name")} Homepage`>
@@ -104,7 +104,7 @@ $ const tagline = site.get("tagline");
 
     </marko-web-element>
   </default-theme-site-footer-container>
-  <default-theme-site-footer-container block-name=blockName modifiers=["primary"]>
+  <default-theme-site-footer-container block-name=blockName modifiers=["primary"] attrs={ "aria-label": "Primary Footer" }>
     <marko-web-element block-name=blockName name="inner-container">
 
       <!-- $ const imageHost = config.website("imageHost");
