@@ -7,11 +7,11 @@ $ const publicationIds = site.getAsArray("publicationIds");
 <marko-web-query|{ nodes }| name="magazine-publications" params={ publicationIds: publicationIds, queryFragmet: publicationListFragment }>
   <for|publication| of=nodes>
     <marko-web-query|{ node: latestIssue }| name="magazine-latest-issue" params={ publicationId: publication.id }>
-      <default-theme-magazine-publication-card-block publication-id=publication.id issue-id=latestIssue.id>
+      <theme-magazine-publication-card-block publication-id=publication.id issue-id=latestIssue.id>
         <@header>
           <marko-web-magazine-publication-name tag=null obj=publication link=true />
         </@header>
-      </default-theme-magazine-publication-card-block>
+      </theme-magazine-publication-card-block>
     </marko-web-query>
   </for>
 </marko-web-query>
