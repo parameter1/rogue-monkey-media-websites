@@ -28,6 +28,7 @@
     "@parameter1/base-cms-marko-web-search": "^3.13.3",
     "@parameter1/base-cms-marko-web-social-sharing": "^3.0.0",
     "@parameter1/base-cms-marko-web-theme-monorail": "^3.13.5",
+    "@parameter1/base-cms-marko-web-theme-monorail-magazine": "^3.13.5",
     "@parameter1/base-cms-object-path": "^3.0.0",
     "@parameter1/base-cms-utils": "^3.0.0",
     "@parameter1/base-cms-web-cli": "^3.13.5",

@@ -1,5 +1,5 @@
 import { getAsObject } from "@parameter1/base-cms-object-path";
-import issueFragment from "../graphql/fragments/magazine-issue-archive";
+import issueFragment from "@parameter1/base-cms-marko-web-theme-monorail-magazine/graphql/fragments/magazine-issue-archive";
 import contentListFragment from "@parameter1/base-cms-marko-web-theme-monorail/graphql/fragments/content-list"
 
 $ const { site, pagination: p } = out.global;
@@ -67,7 +67,7 @@ $ const perPage = 50;
                               </@text>
                               <@footer>
                                 <@left>
-                                  <global-magazine-publication-buttons issue=issue />
+                                  <theme-magazine-publication-buttons issue=issue />
                                 </@left>
                               </@footer>
                             </@body>
