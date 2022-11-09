@@ -24,7 +24,7 @@ $ const hasUser = defaultValue(input.hasUser, false);
          <!-- social -->
          <social-icons block-name=blockName />
         <!-- about section -->
-        <default-theme-site-menu-section
+        <theme-site-menu-section
           tag="nav"
           block-name=blockName
           label="About"
@@ -37,7 +37,7 @@ $ const hasUser = defaultValue(input.hasUser, false);
       </div>
       <div class="col-6 col-lg-3">
         <!-- sections -->
-        <default-theme-site-menu-section
+        <theme-site-menu-section
           tag="nav"
           block-name=blockName
           label="Topics"
@@ -50,7 +50,7 @@ $ const hasUser = defaultValue(input.hasUser, false);
       <div class="col-6 col-lg-3">
         $ const resources = site.getAsArray("navigation.desktopMenu.resources")
         <if(resources.length)>
-          <default-theme-site-menu-section
+          <theme-site-menu-section
             tag="nav"
             block-name=blockName
             label="Resources"
@@ -64,7 +64,7 @@ $ const hasUser = defaultValue(input.hasUser, false);
       <div class="col-6 col-lg-3">
         $ const toolboxItems = site.getAsArray("navigation.desktopMenu.toolbox")
         <if(toolboxItems.length)>
-          <default-theme-site-menu-section
+          <theme-site-menu-section
             tag="nav"
             block-name=blockName
             label="Toolbox"
@@ -84,7 +84,7 @@ $ const hasUser = defaultValue(input.hasUser, false);
     <!-- social -->
     <social-icons block-name=blockName />
     <!-- primary section -->
-    <default-theme-site-menu-section
+    <theme-site-menu-section
       tag="nav"
       block-name=blockName
       items=site.getAsArray("navigation.mobileMenu.primary")
@@ -93,7 +93,7 @@ $ const hasUser = defaultValue(input.hasUser, false);
       has-user=hasUser
     />
     <!-- secondary section -->
-    <default-theme-site-menu-section
+    <theme-site-menu-section
       tag="nav"
       block-name=blockName
       items=site.getAsArray("navigation.mobileMenu.secondary")

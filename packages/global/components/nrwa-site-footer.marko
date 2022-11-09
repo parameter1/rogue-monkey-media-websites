@@ -1,4 +1,4 @@
-import getNavItems from "@parameter1/base-cms-marko-web-theme-default/components/site-navbar/utils/get-nav-items";
+import getNavItems from "@parameter1/base-cms-marko-web-theme-monorail/components/site-navbar/utils/get-nav-items";
 import { asObject } from "@parameter1/base-cms-utils";
 
 $ const { config, site } = out.global;
@@ -18,7 +18,7 @@ $ const navBlockName = "site-footer-nav";
   <div class="wave-wrapper">
     <div class="wave-textured"></div>
   </div>
-  <default-theme-site-footer-container block-name=blockName modifiers=["secondary"]>
+  <theme-site-footer-container block-name=blockName modifiers=["secondary"]>
     <marko-web-element block-name=blockName name="inner-container">
       <div class="row">
         <marko-web-element block-name=blockName name="section">
@@ -29,7 +29,7 @@ $ const navBlockName = "site-footer-nav";
         <marko-web-element block-name=blockName name="section">
           $ const topics = site.getAsArray("navigation.footer.topics");
           <if(topics.length)>
-              <default-theme-site-menu-section
+              <theme-site-menu-section
                 tag="nav"
                 block-name=navBlockName
                 label="Topics"
@@ -43,7 +43,7 @@ $ const navBlockName = "site-footer-nav";
         <marko-web-element block-name=blockName name="section">
           $ const toolbox = site.getAsArray("navigation.footer.toolbox");
           <if(toolbox.length)>
-            <default-theme-site-menu-section
+            <theme-site-menu-section
               tag="nav"
               block-name=navBlockName
               label="Toolbox"
@@ -58,7 +58,7 @@ $ const navBlockName = "site-footer-nav";
           $ const navBlockName = "site-footer-nav";
           $ const more = site.getAsArray("navigation.footer.subscribe");
           <if(more.length)>
-            <default-theme-site-menu-section
+            <theme-site-menu-section
               tag="nav"
               block-name=navBlockName
               label="Subscribe"
@@ -71,11 +71,11 @@ $ const navBlockName = "site-footer-nav";
         </marko-web-element>
       </div>
     </marko-web-element>
-  </default-theme-site-footer-container>
+  </theme-site-footer-container>
 
-  <default-theme-site-footer-container block-name=blockName modifiers=["primary"]>
+  <theme-site-footer-container block-name=blockName modifiers=["primary"]>
     <marko-web-element block-name=blockName name="inner-container">
-      <default-theme-site-footer-copyright
+      <theme-site-footer-copyright
         company=site.get("company")
         notice=site.get("copyrightNotice")
       />
@@ -93,5 +93,5 @@ $ const navBlockName = "site-footer-nav";
       </theme-breadcrumbs>
 
     </marko-web-element>
-  </default-theme-site-footer-container>
+  </theme-site-footer-container>
 </marko-web-block>
