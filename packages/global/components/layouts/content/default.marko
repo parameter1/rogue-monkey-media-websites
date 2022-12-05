@@ -100,35 +100,14 @@ $ const shouldInjectAds = ["article", "video", "news", "podcast", "press-release
 
             $ const isSponsored = getAsArray(content, "labels").includes("Sponsored");
             $ const bodyId = `content-body-${content.id}`;
-
-            <if(shouldInjectAds && !isSponsored)>
-
-              <theme-gam-inject-ads selector=`#${bodyId}` detect-embeds=true>
-                $ const desktopCounts = [1000, 2750, 4500, 6250, 8000, 9750, 11500, 13250, 15000, 16750, 18500];
-                <for|char| of=desktopCounts>
-                  <!-- desktop/tablet only -->
-                  <@inject
-                    at=char
-                    name="inline-content-desktop"
-                    aliases=aliases
-                    modifiers=["max-width-970", "margin-auto-x", "inline-content"]
-                  />
-                </for>
-
-                $ const mobileCounts = [350, 1650, 2950, 4250, 5550, 6850, 8150, 9450, 10750, 12050, 13350, 14650, 15950, 17250];
-                <for|char| of=mobileCounts>
-                  <!-- mobile only -->
-                  <@inject
-                    at=char
-                    name="inline-content-mobile"
-                    aliases=aliases
-                    modifiers=["max-width-970", "margin-auto-x", "inline-content"]
-                  />
-                </for>
-              </theme-gam-inject-ads>
-            </if>
-
-            <marko-web-content-body block-name=blockName obj=content attrs={ id: bodyId } />
+            <theme-body-with-injection
+              content=content
+              aliases=aliases
+              block-name=blockName
+              modifiers=bodyModifiers
+              selector=bodyId
+              preventHTMLInjection=!shouldInjectAds
+            />
 
             <!-- needs input -->
             <if(input.afterBody)>
@@ -141,6 +120,23 @@ $ const shouldInjectAds = ["article", "video", "news", "podcast", "press-release
 
             $ const sidebars = getAsArray(content, "sidebars").map((sidebar) => sidebar.body);
             <marko-web-content-sidebars block-name=blockName obj={ sidebars } />
+
+            <!-- Add Transcripts and allow for the ad injection -->
+            <if(content.transcript)>
+              $ const transcriptId = `content-transcript-${content.id}`;
+              <div id=`transcript-${id}` class="page-contents__content-transcript">
+                <marko-web-element block-name="page-contents" name="content-transcript-title">
+                  <marko-web-icon name="file" modifiers=["lg"] /> Transcript
+                </marko-web-element>
+                <theme-body-with-injection
+                  content={ body: content.transcript }
+                  aliases=aliases
+                  block-name=blockName
+                  selector=transcriptId
+                  preventHTMLInjection=!shouldInjectAds
+                />
+              </div>
+            </if>
           </else>
         </marko-web-identity-x-access>
 
