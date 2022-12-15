@@ -42,6 +42,9 @@ module.exports = {
   gtm: {
     containerId: 'GTM-TQLXKT6',
   },
+  magazine: {
+    buttons: ['subscribe', 'pdf', 'archives'],
+  },
   wufoo: {
     userName: 'roguemonkeymedia',
   },
