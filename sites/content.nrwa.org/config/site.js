@@ -44,6 +44,7 @@ module.exports = {
   },
   magazine: {
     buttons: ['subscribe', 'pdf', 'archives'],
+  },
   wufoo: {
     userName: 'roguemonkeymedia',
   },
