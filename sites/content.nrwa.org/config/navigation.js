@@ -19,7 +19,7 @@ const resources = [
   { href: '/magazine', label: 'Magazine' },
   { href: '/videos', label: 'Videos' },
   { href: 'https://careers.nrwa.org', label: 'Career Center', target: '_blank' },
-  // { href: '/whitepaper', label: 'Whitepapers' },
+  { href: '/white-papers', label: 'White Papers' },
 ];
 
 const utilities = [
