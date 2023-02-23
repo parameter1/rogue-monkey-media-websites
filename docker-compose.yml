@@ -45,8 +45,9 @@ x-env-virgon: &env-virgon
   SITEMAPS_URI: ${SITEMAPS_URI-https://sitemaps.virgon.base.parameter1.com}
 
 x-site-command: &site-cmd
-  entrypoint: ["node_modules/.bin/basecms-website"]
-  command: ["dev", "index.js"]
+  <<: *node
+  entrypoint: ["yarn"]
+  command: ["dev"]
 
 volumes:
   yarn-cache: {}
