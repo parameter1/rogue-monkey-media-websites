@@ -68,7 +68,6 @@ services:
       <<: *env
 
   nrwa:
-    <<: *node
     <<: *site-cmd
     working_dir: /root/sites/content.nrwa.org
     environment:

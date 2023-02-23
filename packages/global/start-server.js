@@ -45,7 +45,7 @@ module.exports = (options = {}) => {
       app.use(paginated());
 
       // i18n
-      const i18n = v => v;
+      const i18n = (v) => v;
       set(app.locals, 'i18n', options.i18n || i18n);
 
       // Use paginated middleware
@@ -66,7 +66,7 @@ module.exports = (options = {}) => {
       // Recaptcha
       set(app.locals, 'recaptcha', recaptcha);
     },
-    onAsyncBlockError: e => newrelic.noticeError(e),
+    onAsyncBlockError: (e) => newrelic.noticeError(e),
 
     embeddedMediaHandlers: {
       oembed: oembedHandler,
