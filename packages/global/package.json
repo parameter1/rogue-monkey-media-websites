@@ -12,7 +12,6 @@
     "lint:fix": "yarn lint --fix",
     "test": "yarn lint && yarn compile --no-clean"
   },
-
   "dependencies": {
     "@parameter1/base-cms-image": "^4.0.2",
     "@parameter1/base-cms-inflector": "^4.0.2",
