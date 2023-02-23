@@ -2,10 +2,10 @@
 @import "variables";
 
 // import theme css
-@import "../../node_modules/@parameter1/base-cms-marko-web-theme-monorail/scss/core";
+@import "@parameter1/base-cms-marko-web-theme-monorail/scss/core";
 
 // import theme magazine css
-@import "../../node_modules/@parameter1/base-cms-marko-web-theme-monorail-magazine/scss/index";
+@import "@parameter1/base-cms-marko-web-theme-monorail-magazine/scss/index";
 @import "./components/magazine";
 
 // page wrapper
