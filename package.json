@@ -18,9 +18,9 @@
     "test": "lerna run test"
   },
   "devDependencies": {
-    "@parameter1/base-cms-marko-compiler": "^4.0.2",
     "@babel/core": "^7.21.0",
     "@babel/eslint-parser": "^7.19.1",
+    "@parameter1/base-cms-marko-compiler": "^4.0.2",
     "eslint": "^8.34.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.27.5",
