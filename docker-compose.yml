@@ -71,8 +71,7 @@ services:
     <<: *site-cmd
     working_dir: /root/sites/content.nrwa.org
     environment:
-      <<: *env
-      <<: *env-virgon
+      <<: [*env, *env-virgon]
       PORT: 80
       EXPOSED_PORT: 9901
       LIVERELOAD_PORT: 19901
