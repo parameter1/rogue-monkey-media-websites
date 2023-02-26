@@ -3,7 +3,7 @@ version: '3.7'
 x-node-defaults: &node
   tty: true
   init: true
-  image: node:10.24
+  image: node:14.21
   entrypoint: ["node"]
   working_dir: /root
   volumes:
@@ -45,8 +45,9 @@ x-env-virgon: &env-virgon
   SITEMAPS_URI: ${SITEMAPS_URI-https://sitemaps.virgon.base.parameter1.com}
 
 x-site-command: &site-cmd
-  entrypoint: ["node_modules/.bin/basecms-website"]
-  command: ["dev", "index.js"]
+  <<: *node
+  entrypoint: ["yarn"]
+  command: ["dev"]
 
 volumes:
   yarn-cache: {}
@@ -67,17 +68,13 @@ services:
       <<: *env
 
   nrwa:
-    <<: *node
     <<: *site-cmd
     working_dir: /root/sites/content.nrwa.org
     environment:
       <<: *env
-      <<: *env-virgon
       PORT: 80
       EXPOSED_PORT: 9901
       LIVERELOAD_PORT: 19901
-      TENANT_KEY: roguemonkeymedia_all
-      SITE_ID: 6176b67ef20045c5348b457f
     ports:
       - "9901:80"
       - "19901:19901"

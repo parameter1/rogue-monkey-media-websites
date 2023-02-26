@@ -20,7 +20,7 @@ config
 
 const aliases = ['resource-guide'];
 
-aliases.forEach(alias => config.setAliasAdUnits(alias, [
+aliases.forEach((alias) => config.setAliasAdUnits(alias, [
   { name: 'leaderboard', templateName: 'LEADERBOARD', path: `${alias}-leaderboard` },
   { name: 'rail', templateName: 'RAIL', path: `${alias}-rotation` },
   { name: 'rotation', templateName: 'ROTATION', path: `${alias}-rotation` },

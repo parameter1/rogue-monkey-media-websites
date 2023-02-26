@@ -5,7 +5,6 @@ const publicationFragment = require('@parameter1/base-cms-marko-web-theme-monora
 const issueFragment = require('@parameter1/base-cms-marko-web-theme-monorail-magazine/graphql/fragments/magazine-issue-page');
 const issue = require('../templates/magazine/issue');
 
-
 module.exports = (app) => {
   app.get('/magazine', (req, res) => {
     res.marko(index);
