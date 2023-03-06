@@ -8,6 +8,12 @@ module.exports = (app) => {
     template: products,
     queryFragment,
   }));
+  app.get('/:alias(more-articles)', withWebsiteSection({
+    template: section,
+    queryFragment,
+    aliasResolver: () => 'home',
+    redirectOnPathMismatch: false,
+  }));
   app.get('/:alias([a-z0-9-/]+)', withWebsiteSection({
     template: section,
     queryFragment,
