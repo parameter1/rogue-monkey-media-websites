@@ -4,6 +4,7 @@ const topics = {
     { href: '/legislation', label: 'Legislation' },
     { href: '/technology', label: 'Technology' },
     { href: '/resource-guide', label: 'Resource Guide' },
+    { href: '/more-articles', label: 'More Articles' },
   ],
   expanded: [],
   secondary: [
@@ -54,6 +55,7 @@ const desktopMenu = {
     { href: 'https://theassociationpartner.com/nrwa/', label: 'Digital Retargeting Opportunities', target: '_blank' },
     { href: 'http://nrwa.org/non-discrimination-policy/', label: 'Non-Discrimination Policy', target: '_blank' },
     { href: 'https://members.nrwa.org/Public/Members/NRWA-Store/iCore/Store/StoreLayouts/Store_Home.aspx', label: 'NRWA Online Store', target: '_blank' },
+    { href: '/more-articles', label: 'More Articles' },
   ],
   resources: [
     ...resources,
