@@ -10,7 +10,7 @@ $theme-site-header-breakpoints: (
 $primary: #103a57;
 
 @import "@rogue-monkey-media/package-global/scss/core";
-
+/*! critical:start */
 .page {
   &--content-company {
     margin-top: 2rem;
@@ -51,6 +51,7 @@ $primary: #103a57;
     }
   }
 }
+/*! critical:end */
 
 .site-footer {
   margin-top: 55px;
@@ -147,7 +148,7 @@ $primary: #103a57;
   background-repeat: no-repeat;
   animation: movehorz3 64s linear infinite alternate;
 }
-
+/*! critical:start */
 .site-menu {
   &__contents-desktop {
     padding-top: 60px;
@@ -156,3 +157,5 @@ $primary: #103a57;
     padding-top: 50px;
   }
 }
+
+/*! critical:end */

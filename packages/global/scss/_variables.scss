@@ -1,6 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Alata&family=Open+Sans:wght@300;400;700&display=swap");
-$skin-font-family-primary: "Alata", sans-serif;
-$skin-font-family-secondary: "Open Sans", sans-serif;
+@import "@parameter1/base-cms-marko-web/scss/fonts/alata-fallback";
+@import "@parameter1/base-cms-marko-web/scss/fonts/open-sans-fallback";
+
+$skin-font-family-primary: "Alata", alata-fallback, sans-serif;
+$skin-font-family-secondary: "Open Sans", open-sans-fallback, sans-serif;
 
 $navbarStyle: "navbar" !default;
 $theme-site-navbar-logo-height: 45px;
