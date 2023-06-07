@@ -9,7 +9,7 @@ const topics = {
   expanded: [],
   secondary: [
     { href: 'https://nrwa.org/', label: 'NRWA.org' },
-    { href: 'https://wateruniversity.org/', label: 'Water University' },
+    { href: 'https://nrwa.org/waterproacademy/', label: 'WaterPro Academy' },
     { href: 'https://careers.nrwa.org/', label: 'Career Center' },
     { href: 'https://members.nrwa.org/Shared_Content/Sign_In.aspx', label: 'Member Portal' },
     { href: 'https://www.waterproconference.org/', label: 'WaterPro Conference' },
