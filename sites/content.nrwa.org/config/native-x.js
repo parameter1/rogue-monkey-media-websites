@@ -2,8 +2,6 @@ const configureNativeX = require('@rogue-monkey-media/package-global/config/nati
 
 const config = configureNativeX();
 
-config.enabled = true;
-
 config
   .setAliasPlacements('default', [
     { name: 'default', id: '61f87de43b0b4800018ce438' },
