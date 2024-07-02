@@ -5,6 +5,7 @@
     "./layouts/marko.json",
     "./search/marko.json"
   ],
+  "<mos-creative>" : {},
   "<global-image-slider>": {
     "template": "./image-slider.marko"
   },
