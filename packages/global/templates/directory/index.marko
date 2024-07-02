@@ -3,7 +3,7 @@ import { getAsArray } from "@parameter1/base-cms-object-path";
 import queryFragment from "@rogue-monkey-media/package-global/graphql/fragments/directory-section-feed-block";
 
 $ const { id, alias, name, pageNode } = input;
-$ const { $markoWebSearch: search } = out.global;
+$ const { $markoWebSearch: searc, GAM } = out.global;
 $ const sortField = (search.input.searchQuery) ? undefined : "NAME";
 $ const sortOrder = (search.input.searchQuery) ? undefined : "ASC";
 $ const currentPage = search.getCurrentPage();
