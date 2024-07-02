@@ -106,7 +106,8 @@ $ const shouldInjectAds = GAM && GAM.enabled && ["article", "video", "news", "po
 
             $ const isSponsored = getAsArray(content, "labels").includes("Sponsored");
             $ const bodyId = `content-body-${content.id}`;
-            <theme-body-with-injection
+
+            <content-body-with-injection
               content=content
               aliases=aliases
               block-name=blockName
