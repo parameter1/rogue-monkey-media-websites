@@ -30,6 +30,13 @@
     "<below-container>": {},
     "<foot>": {}
   },
+  "<global-ssr-html-inject>": {
+    "template": "./ssr-html-inject.marko",
+    "<component-input>": {},
+    "@inject <inject>[]": {},
+    "@selector": "string",
+    "@to-render": "expression"
+  },
   "<global-site-menu>": {
     "template": "./site-menu/index.marko"
   },
