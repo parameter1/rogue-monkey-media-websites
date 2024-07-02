@@ -172,4 +172,17 @@ $ const perPage = 18;
       />
     </@section>
   </for>
+  <@section|{ aliases }|>
+    <if(GAM && GAM.enabled)>
+      <theme-gam-define-display-ad
+        name="rotation"
+        position="section_page"
+        aliases=aliases
+        modifiers=["inter-block"]
+      />
+    </if>
+    <else>
+      <mos-creative />
+    </else>
+  </@section>
 </global-website-section-default-layout>
