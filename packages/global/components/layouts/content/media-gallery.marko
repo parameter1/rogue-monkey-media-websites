@@ -1,7 +1,7 @@
 import { get, getAsArray } from "@parameter1/base-cms-object-path";
 import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
 
-$ const { site } = out.global;
+$ const { site, GAM } = out.global;
 $ const { id, type, pageNode, ...rest } = input;
 $ const sections = getAsArray(input, "sections");
 
@@ -12,12 +12,17 @@ $ const sections = getAsArray(input, "sections");
   ...rest
 >
   <@section|{ aliases }| modifiers=["break-container", "first-sm"]>
-    <theme-gam-define-display-ad
-      name="leaderboard"
-      position="content_page"
-      aliases=aliases
-      modifiers=["inter-block", "combined-leaderboard"]
-    />
+    <if(GAM && GAM.enabled)>
+      <theme-gam-define-display-ad
+        name="leaderboard"
+        position="content_page"
+        aliases=aliases
+        modifiers=["inter-block", "combined-leaderboard"]
+      />
+    </if>
+    <else>
+      <mos-creative />
+    </else>
   </@section>
 
   <@section|{ blockName, content, aliases, authors }| modifiers=["content-header"]>
@@ -61,12 +66,17 @@ $ const sections = getAsArray(input, "sections");
   </@section>
 
   <@section|{ aliases }|>
-    <theme-gam-define-display-ad
-      name="rotation"
-      position="content_page"
-      aliases=aliases
-      modifiers=["inter-block"]
-    />
+    <if(GAM && GAM.enabled)>
+      <theme-gam-define-display-ad
+        name="rotation"
+        position="content_page"
+        aliases=aliases
+        modifiers=["inter-block"]
+      />
+    </if>
+    <else>
+      <mos-creative />
+    </else>
   </@section>
 
   <for|s| of=sections>

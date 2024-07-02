@@ -83,5 +83,8 @@ $ const {
     <else>
       <global-site-footer />
     </else>
+    <if(!GAM || (GAM && !GAM.enabled))>
+      <script type="module" src="https://mos-scripts.com/a/main.js"></script>
+    </if>
   </@below-container>
 </marko-web-document>
