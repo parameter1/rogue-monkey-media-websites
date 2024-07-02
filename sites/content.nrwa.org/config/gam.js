@@ -8,7 +8,7 @@ config.lazyLoad = {
   renderMarginPercent: 50, // render ad when half viewport away
   mobileScaling: 2, // double these on mobile
 };
-
+config.enabled = false;
 config
   .setAliasAdUnits('default', [
     { name: 'leaderboard', templateName: 'LEADERBOARD', path: 'leaderboard' },

@@ -1,4 +1,4 @@
-$ const { config } = out.global;
+$ const { config, GAM } = out.global;
 
 $ const type = "login";
 $ const title = "Log in";
@@ -13,12 +13,17 @@ $ const description = `Log in to ${config.siteName()}`;
   <@page>
     <marko-web-page-wrapper>
       <@section|{ aliases }| modifiers=["first"]>
-        <theme-gam-define-display-ad
-          name="leaderboard"
-          position="static_page"
-          aliases=aliases
-          modifiers=["inter-block"]
-        />
+        <if(GAM && GAM.enabled)>
+          <theme-gam-define-display-ad
+            name="leaderboard"
+            position="static_page"
+            aliases=aliases
+            modifiers=["inter-block"]
+          />
+        </if>
+        <else>
+          <mos-creative />
+        </else>
       </@section>
 
       <@section>
@@ -27,12 +32,17 @@ $ const description = `Log in to ${config.siteName()}`;
       </@section>
 
       <@section|{ aliases }|>
-        <theme-gam-define-display-ad
-          name="rotation"
-          position="static_page"
-          aliases=aliases
-          modifiers=["inter-block"]
-        />
+        <if(GAM && GAM.enabled)>
+          <theme-gam-define-display-ad
+            name="rotation"
+            position="static_page"
+            aliases=aliases
+            modifiers=["inter-block"]
+          />
+        </if>
+        <else>
+          <mos-creative />
+        </else>
       </@section>
     </marko-web-page-wrapper>
   </@page>

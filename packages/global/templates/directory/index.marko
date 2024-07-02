@@ -15,12 +15,17 @@ $ const currentPage = search.getCurrentPage();
   page-node=pageNode
 >
   <@section|{ aliases }| modifiers=["first"]>
-    <theme-gam-define-display-ad
-      name="leaderboard"
-      position="section_page"
-      aliases=aliases
-      modifiers=["inter-block"]
-    />
+    <if(GAM && GAM.enabled)>
+      <theme-gam-define-display-ad
+        name="leaderboard"
+        position="section_page"
+        aliases=aliases
+        modifiers=["inter-block"]
+      />
+    </if>
+    <else>
+      <mos-creative />
+    </else>
   </@section>
   <@section|{ blockName, section }|>
     <theme-breadcrumbs modifiers=["directory", "content-page"]>
@@ -141,11 +146,4 @@ $ const currentPage = search.getCurrentPage();
       </div>
     </div>
   </@section>
-  <!-- <@section>
-    <theme-gam-define-display-ad
-      name="rotation"
-      position="static_page"
-      modifiers=["inter-block"]
-    />
-  </@section> -->
 </global-website-section-default-layout>
