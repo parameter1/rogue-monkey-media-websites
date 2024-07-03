@@ -2,7 +2,7 @@ import { getAsObject } from "@parameter1/base-cms-object-path";
 import issueFragment from "@parameter1/base-cms-marko-web-theme-monorail-magazine/graphql/fragments/magazine-issue-archive";
 import contentListFragment from "@parameter1/base-cms-marko-web-theme-monorail/graphql/fragments/content-list"
 
-$ const { site, pagination: p } = out.global;
+$ const { site, pagination: p, GAM } = out.global;
 $ const { id, pageNode } = data;
 $ const perPage = 50;
 
@@ -30,12 +30,17 @@ $ const perPage = 50;
     <marko-web-resolve-page|{ data: issue }| node=pageNode>
       <marko-web-page-wrapper class="mb-block">
         <@section|{ aliases }|>
-          <theme-gam-define-display-ad
-            name="leaderboard"
-            position="magazine_page"
-            aliases=aliases
-            modifiers=["inter-block"]
-          />
+          <if(GAM && GAM.enabled)>
+            <theme-gam-define-display-ad
+              name="leaderboard"
+              position="magazine_page"
+              aliases=aliases
+              modifiers=["inter-block"]
+            />
+          </if>
+          <else>
+            <mos-creative />
+          </else>
         </@section>
           <@section>
             <div class="row">
