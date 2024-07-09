@@ -157,5 +157,9 @@ $primary: #103a57;
     padding-top: 50px;
   }
 }
+.page-wrapper__section--break-container,
+.ad-container--inline-content {
+  background-color: $white;
+}
 
 /*! critical:end */
