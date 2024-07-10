@@ -167,4 +167,9 @@ $primary: #103a57;
   width: 0;
 }
 
+// Hides the media os bar on the bottom of the site
+mediaos-core {
+  display: none !important;
+}
+
 /*! critical:end */
