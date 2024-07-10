@@ -168,8 +168,10 @@ $primary: #103a57;
 }
 
 // Hides the media os bar on the bottom of the site
+/*! purgecss start ignore */
 mediaos-core {
   display: none !important;
 }
+/*! purgecss end ignore */
 
 /*! critical:end */
