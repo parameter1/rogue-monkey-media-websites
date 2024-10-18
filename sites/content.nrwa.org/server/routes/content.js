@@ -1,4 +1,5 @@
 const withContent = require('@rogue-monkey-media/package-global/middleware/with-content');
+const { formatContentResponse } = require('@rogue-monkey-media/package-global/middleware/format-content-response');
 const qf = require('@rogue-monkey-media/package-global/graphql/fragments/content-page');
 const contact = require('@rogue-monkey-media/package-global/templates/content/contact');
 const company = require('../templates/content/company');
@@ -15,25 +16,30 @@ module.exports = (app) => {
   app.get('/*?contact/:id(\\d{8})*', withContent({
     template: contact,
     queryFragment,
+    formatResponse: formatContentResponse,
   }));
 
   app.get('/*?company/:id(\\d{8})*', withContent({
     template: company,
     queryFragment,
+    formatResponse: formatContentResponse,
   }));
 
   app.get('/*?media-gallery/:id(\\d{8})*', withContent({
     template: mediaGallery,
     queryFragment,
+    formatResponse: formatContentResponse,
   }));
 
   app.get('/*?whitepaper/:id(\\d{8})*', withContent({
     template: whitepaper,
     queryFragment,
+    formatResponse: formatContentResponse,
   }));
 
   app.get('/*?:id(\\d{8})*', withContent({
     template: content,
     queryFragment,
+    formatResponse: formatContentResponse,
   }));
 };
