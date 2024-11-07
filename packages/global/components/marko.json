@@ -5,6 +5,7 @@
     "./layouts/marko.json",
     "./search/marko.json"
   ],
+  "<mos-creative unit-ids="278" >" : {},
   "<global-image-slider>": {
     "template": "./image-slider.marko"
   },
@@ -28,6 +29,13 @@
     },
     "<below-container>": {},
     "<foot>": {}
+  },
+  "<global-ssr-html-inject>": {
+    "template": "./ssr-html-inject.marko",
+    "<component-input>": {},
+    "@inject <inject>[]": {},
+    "@selector": "string",
+    "@to-render": "expression"
   },
   "<global-site-menu>": {
     "template": "./site-menu/index.marko"

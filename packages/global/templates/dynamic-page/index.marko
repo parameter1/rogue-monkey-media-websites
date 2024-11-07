@@ -1,4 +1,6 @@
 $ const { id, type, pageNode } = input;
+$ const { GAM } = out.global;
+
 
 <global-content-wrapper-layout
   id=id
@@ -7,11 +9,17 @@ $ const { id, type, pageNode } = input;
 >
 
   <@section|{ aliases }| modifiers=["first"]>
-    <theme-gam-define-display-ad
-      position="content_page"
-      aliases=aliases
-      modifiers=["inter-block"]
-    />
+    <if(GAM && GAM.enabled)>
+      <theme-gam-define-display-ad
+        name="leaderboard"
+        position="content_page"
+        aliases=aliases
+        modifiers=["inter-block"]
+      />
+    </if>
+    <else>
+      <mos-creative unit-ids="278" />
+    </else>
   </@section>
 
   <@section|{ blockName, content }|>
