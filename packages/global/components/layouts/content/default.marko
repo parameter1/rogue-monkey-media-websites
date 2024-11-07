@@ -34,7 +34,7 @@ $ const shouldInjectAds = GAM && GAM.enabled && ["article", "video", "news", "po
       />
     </if>
     <else>
-      <mos-creative />
+      <mos-creative unit-ids="278" />
     </else>
 
   </@section>
@@ -134,7 +134,7 @@ $ const shouldInjectAds = GAM && GAM.enabled && ["article", "video", "news", "po
                 <marko-web-element block-name="page-contents" name="content-transcript-title">
                   <marko-web-icon name="file" modifiers=["lg"] /> Transcript
                 </marko-web-element>
-                <theme-body-with-injection
+                <content-body-with-injection
                   content={ body: content.transcript }
                   aliases=aliases
                   block-name=blockName
@@ -198,7 +198,7 @@ $ const shouldInjectAds = GAM && GAM.enabled && ["article", "video", "news", "po
         />
       </if>
       <else>
-        <mos-creative />
+        <mos-creative unit-ids="278" />
       </else>
     </@section>
   </if>
