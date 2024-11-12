@@ -169,6 +169,9 @@
 @import "@parameter1/base-cms-marko-web-theme-monorail/scss/components/blocks/more-products";
 @import "@parameter1/base-cms-marko-web-theme-monorail/scss/components/blocks/most-popular";
 @import "@parameter1/base-cms-marko-web-theme-monorail/scss/components/blocks/newsletter-signup-banner";
+/*! purgecss start ignore */
+@import "@parameter1/base-cms-marko-web-theme-monorail/scss/components/newsletter-signup-modal";
+/*! purgecss end ignore */
 /*! critical:start|home */
 /*! critical:start|website-section */
 @import "@parameter1/base-cms-marko-web-theme-monorail/scss/components/blocks/newsletter-signup-banner-large";
@@ -335,6 +338,12 @@ label {
     &:focus {
       background-color: #fff;
     }
+  }
+}
+
+.content-survey-access-idx__wrapper {
+  .btn {
+    margin-top: map-get($spacers, block)
   }
 }
 
