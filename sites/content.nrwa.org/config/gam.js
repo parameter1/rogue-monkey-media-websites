@@ -1,7 +1,7 @@
 const configureGAM = require('@rogue-monkey-media/package-global/config/gam');
 
 const config = configureGAM({ basePath: 'NRWA_Content_Portal_V2' });
-
+config.enabled = false;
 config.lazyLoad = {
   enabled: true, // set to true to enable lazy loading
   fetchMarginPercent: 100, // fetch ad when one viewport away
