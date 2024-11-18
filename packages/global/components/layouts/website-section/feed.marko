@@ -50,8 +50,8 @@ $ const perPage = 18;
 
     <marko-web-website-section-name|{ value }| tag="h1" block-name=blockName obj=section>
       $ const title = value === 'Home' ? 'More Articles' : value;
-      <if(p.page > 1)>${title}: Page ${p.page}</if>
-      <else>${title}</else>
+      <if(p.page > 1)>$!{title}: Page ${p.page}</if>
+      <else>$!{title}</else>
     </marko-web-website-section-name>
 
     <if(input.afterName)>
