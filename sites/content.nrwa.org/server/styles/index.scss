@@ -157,5 +157,21 @@ $primary: #103a57;
     padding-top: 50px;
   }
 }
+.page-wrapper__section--break-container,
+.ad-container--inline-content {
+  background-color: $white;
+}
+.page-contents__content-body .ad-container--inline-content +.ad-container--inline-content {
+  display: none;
+  height: 0;
+  width: 0;
+}
+
+// Hides the media os bar on the bottom of the site
+/*! purgecss start ignore */
+mediaos-core {
+  display: none !important;
+}
+/*! purgecss end ignore */
 
 /*! critical:end */

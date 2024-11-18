@@ -1,6 +1,6 @@
 import { getAsArray } from "@parameter1/base-cms-object-path";
 
-$ const { site } = out.global;
+$ const { site, GAM } = out.global;
 $ const { id, type, pageNode, ...rest } = input;
 
 <global-content-wrapper-layout
@@ -10,12 +10,17 @@ $ const { id, type, pageNode, ...rest } = input;
   ...rest
 >
   <@section|{ aliases }| modifiers=["first-sm"]>
-    <theme-gam-define-display-ad
-      name="leaderboard"
-      position="content_page"
-      aliases=aliases
-      modifiers=["inter-block"]
-    />
+    <if(GAM && GAM.enabled)>
+      <theme-gam-define-display-ad
+        name="leaderboard"
+        position="content_page"
+        aliases=aliases
+        modifiers=["inter-block"]
+      />
+    </if>
+    <else>
+      <mos-creative unit-ids="278" />
+    </else>
   </@section>
 
   <@section|{ blockName, content, aliases }| modifiers=["content-header"]>

@@ -1,5 +1,7 @@
 import { getAsArray } from "@parameter1/base-cms-object-path";
 
+$ const { GAM } = out.global;
+
 $ const { id, type, pageNode, ...rest } = input;
 $ const sections = getAsArray(input, "sections");
 
@@ -10,12 +12,17 @@ $ const sections = getAsArray(input, "sections");
   ...rest
 >
   <@section|{ aliases }| modifiers=["first-sm"]>
-    <theme-gam-define-display-ad
-      name="leaderboard"
-      position="content_page"
-      aliases=aliases
-      modifiers=["inter-block"]
-    />
+    <if(GAM && GAM.enabled)>
+      <theme-gam-define-display-ad
+        name="leaderboard"
+        position="content_page"
+        aliases=aliases
+        modifiers=["inter-block"]
+      />
+    </if>
+    <else>
+      <mos-creative unit-ids="278" />
+    </else>
   </@section>
 
   <@section|{ aliases, blockName, content }| modifiers=["content-header"]>
@@ -62,25 +69,35 @@ $ const sections = getAsArray(input, "sections");
           />
         </if>
         <else>
-          <theme-gam-define-display-ad
-            name="rail-1"
-            position="content_page"
-            aliases=aliases
-            modifiers=["max-width-300", "center", "margin-auto-x", "rail"]
-            class="mb-block"
-          />
+          <if(GAM && GAM.enabled)>
+            <theme-gam-define-display-ad
+              name="rail-1"
+              position="content_page"
+              aliases=aliases
+              modifiers=["max-width-300", "center", "margin-auto-x", "rail"]
+              class="mb-block"
+            />
+          </if>
+          <else>
+            <mos-creative unit-ids="278" />
+          </else>
         </else>
       </div>
     </div>
   </@section>
 
   <@section|{ aliases }|>
-    <theme-gam-define-display-ad
-      name="rotation"
-      position="content_page"
-      aliases=aliases
-      modifiers=["inter-block"]
-    />
+    <if(GAM && GAM.enabled)>
+      <theme-gam-define-display-ad
+        name="rotation"
+        position="content_page"
+        aliases=aliases
+        modifiers=["inter-block"]
+      />
+    </if>
+    <else>
+      <mos-creative unit-ids="278" />
+    </else>
   </@section>
 
   <@section>

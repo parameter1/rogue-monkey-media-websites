@@ -1,7 +1,7 @@
 import { get, getAsArray } from "@parameter1/base-cms-object-path";
 
 $ const { id, alias, name, pageNode } = input;
-$ const { site } = out.global;
+$ const { site, GAM } = out.global;
 $ const sections = getAsArray(input, "sections");
 
 <global-website-section-default-layout
@@ -12,12 +12,17 @@ $ const sections = getAsArray(input, "sections");
   head=input.head
 >
   <@section|{ aliases }| modifiers=["break-container", "first"]>
-    <theme-gam-define-display-ad
-      name="leaderboard"
-      position="home_page"
-      aliases=aliases
-      modifiers=["inter-block", "combined-leaderboard"]
-    />
+    <if(GAM && GAM.enabled)>
+      <theme-gam-define-display-ad
+        name="leaderboard"
+        position="home_page"
+        aliases=aliases
+        modifiers=["inter-block", "combined-leaderboard"]
+      />
+    </if>
+    <else>
+      <mos-creative unit-ids="278" />
+    </else>
   </@section>
 
   <@section|{ aliases }|>
@@ -35,11 +40,16 @@ $ const sections = getAsArray(input, "sections");
   </for>
 
   <@section|{ aliases }|>
-    <theme-gam-define-display-ad
-      name="rotation"
-      position="home_page"
-      aliases=aliases
-      modifiers=["inter-block"]
-    />
+    <if(GAM && GAM.enabled)>
+      <theme-gam-define-display-ad
+        name="rotation"
+        position="home_page"
+        aliases=aliases
+        modifiers=["inter-block"]
+      />
+    </if>
+    <else>
+      <mos-creative unit-ids="278" />
+    </else>
   </@section>
 </global-website-section-default-layout>

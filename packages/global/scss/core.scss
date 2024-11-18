@@ -492,4 +492,16 @@ label {
 [data-embed-type][data-embed-align="right"] {
   clear: right;
 }
+
+.page-wrapper {
+  $self: &;
+  > #{ $self }__section {
+    &:last-of-type{
+      > mos-creative {
+        margin-bottom: 60px;
+        display: block;
+      }
+    }
+  }
+}
 /*! critical:end */

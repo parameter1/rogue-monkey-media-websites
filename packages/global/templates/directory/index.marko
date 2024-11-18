@@ -3,7 +3,7 @@ import { getAsArray } from "@parameter1/base-cms-object-path";
 import queryFragment from "@rogue-monkey-media/package-global/graphql/fragments/directory-section-feed-block";
 
 $ const { id, alias, name, pageNode } = input;
-$ const { $markoWebSearch: search } = out.global;
+$ const { $markoWebSearch: search, GAM } = out.global;
 $ const sortField = (search.input.searchQuery) ? undefined : "NAME";
 $ const sortOrder = (search.input.searchQuery) ? undefined : "ASC";
 $ const currentPage = search.getCurrentPage();
@@ -15,12 +15,17 @@ $ const currentPage = search.getCurrentPage();
   page-node=pageNode
 >
   <@section|{ aliases }| modifiers=["first"]>
-    <theme-gam-define-display-ad
-      name="leaderboard"
-      position="section_page"
-      aliases=aliases
-      modifiers=["inter-block"]
-    />
+    <if(GAM && GAM.enabled)>
+      <theme-gam-define-display-ad
+        name="leaderboard"
+        position="section_page"
+        aliases=aliases
+        modifiers=["inter-block"]
+      />
+    </if>
+    <else>
+      <mos-creative unit-ids="285" />
+    </else>
   </@section>
   <@section|{ blockName, section }|>
     <theme-breadcrumbs modifiers=["directory", "content-page"]>
@@ -141,11 +146,4 @@ $ const currentPage = search.getCurrentPage();
       </div>
     </div>
   </@section>
-  <!-- <@section>
-    <theme-gam-define-display-ad
-      name="rotation"
-      position="static_page"
-      modifiers=["inter-block"]
-    />
-  </@section> -->
 </global-website-section-default-layout>

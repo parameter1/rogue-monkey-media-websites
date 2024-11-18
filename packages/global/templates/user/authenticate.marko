@@ -1,4 +1,4 @@
-$ const { config } = out.global;
+$ const { config, GAM } = out.global;
 
 $ const type = "authenticate";
 $ const title = "Authenticate";
@@ -7,12 +7,17 @@ $ const title = "Authenticate";
   <@page>
     <marko-web-page-wrapper>
       <@section|{ aliases }| modifiers=["first"]>
-        <theme-gam-define-display-ad
-          name="leaderboard"
-          position="static_page"
-          aliases=aliases
-          modifiers=["inter-block"]
-        />
+        <if(GAM && GAM.enabled)>
+          <theme-gam-define-display-ad
+            name="leaderboard"
+            position="static_page"
+            aliases=aliases
+            modifiers=["inter-block"]
+          />
+        </if>
+        <else>
+          <mos-creative unit-ids="278" />
+        </else>
       </@section>
       <@section>
         <marko-web-identity-x-form-authenticate />

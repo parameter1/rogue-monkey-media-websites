@@ -3,7 +3,7 @@ import { getAsArray } from "@parameter1/base-cms-object-path";
 $ const { id, alias, name, pageNode } = input;
 $ const sections = getAsArray(input, "sections");
 
-$ const { pagination: p } = out.global;
+$ const { pagination: p, GAM } = out.global;
 $ const perPage = 10;
 
 <global-website-section-default-layout
@@ -24,12 +24,17 @@ $ const perPage = 10;
   </@head>
 
   <@section|{ aliases }| modifiers=["first"]>
-    <theme-gam-define-display-ad
-      name="leaderboard"
-      position="section_page"
-      aliases=aliases
-      modifiers=["inter-block"]
-    />
+    <if(GAM && GAM.enabled)>
+      <theme-gam-define-display-ad
+        name="leaderboard"
+        position="home_page"
+        aliases=aliases
+        modifiers=["inter-block", "combined-leaderboard"]
+      />
+    </if>
+    <else>
+      <mos-creative unit-ids="278" />
+    </else>
   </@section>
 
   <@section|{ blockName, section, aliases }|>
@@ -57,12 +62,17 @@ $ const perPage = 10;
         </theme-latest-products-feed-block>
       </div>
       <div class="col-lg-4 pt-block">
-        <theme-gam-define-display-ad
-          name="rotation-1"
-          position="section_page"
-          aliases=aliases
-          modifiers=["max-width-300", "center", "margin-auto-x", "rail"]
-        />
+        <if(GAM && GAM.enabled)>
+          <theme-gam-define-display-ad
+            name="rotation-1"
+            position="section_page"
+            aliases=aliases
+            modifiers=["max-width-300", "center", "margin-auto-x", "rail"]
+          />
+        </if>
+        <else>
+          <mos-creative unit-ids="278" />
+        </else>
 
         <${input.railSlotA}
           block-name=blockName
@@ -70,30 +80,45 @@ $ const perPage = 10;
           aliases=aliases
         />
 
-        <theme-gam-define-display-ad
-          name="rotation-2"
-          position="section_page"
-          aliases=aliases
-          modifiers=["max-width-300", "center", "margin-auto-x", "rail"]
-        />
+        <if(GAM && GAM.enabled)>
+          <theme-gam-define-display-ad
+            name="rotation-2"
+            position="section_page"
+            aliases=aliases
+            modifiers=["max-width-300", "center", "margin-auto-x", "rail"]
+          />
+        </if>
+        <else>
+          <mos-creative unit-ids="278" />
+        </else>
 
-        <theme-gam-define-display-ad
-          name="rotation-3"
-          position="section_page"
-          aliases=aliases
-          modifiers=["max-width-300", "center", "margin-auto-x", "rail"]
-        />
+        <if(GAM && GAM.enabled)>
+          <theme-gam-define-display-ad
+            name="rotation-3"
+            position="section_page"
+            aliases=aliases
+            modifiers=["max-width-300", "center", "margin-auto-x", "rail"]
+          />
+        </if>
+        <else>
+          <mos-creative unit-ids="278" />
+        </else>
       </div>
     </div>
   </@section>
 
   <@section|{ aliases }|>
-    <theme-gam-define-display-ad
-      name="leaderboard-2"
-      position="section_page"
-      aliases=aliases
-      modifiers=["inter-block"]
-    />
+    <if(GAM && GAM.enabled)>
+      <theme-gam-define-display-ad
+        name="leaderboard-2"
+        position="section_page"
+        aliases=aliases
+        modifiers=["inter-block"]
+      />
+    </if>
+    <else>
+      <mos-creative unit-ids="278" />
+    </else>
   </@section>
 
   <@section modifiers=["my-block-lg"]>
@@ -111,11 +136,16 @@ $ const perPage = 10;
   </for>
 
   <@section|{ aliases }|>
-    <theme-gam-define-display-ad
-      name="leaderboard-2"
-      position="section_page"
-      aliases=aliases
-      modifiers=["inter-block"]
-    />
+    <if(GAM && GAM.enabled)>
+      <theme-gam-define-display-ad
+        name="leaderboard-2"
+        position="section_page"
+        aliases=aliases
+        modifiers=["inter-block"]
+      />
+    </if>
+    <else>
+      <mos-creative unit-ids="278" />
+    </else>
   </@section>
 </global-website-section-default-layout>
