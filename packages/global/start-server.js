@@ -1,8 +1,11 @@
 const newrelic = require('newrelic');
 const { startServer } = require('@parameter1/base-cms-marko-web');
-const { set, get } = require('@parameter1/base-cms-object-path');
+const { set, get, getAsObject } = require('@parameter1/base-cms-object-path');
 const loadInquiry = require('@parameter1/base-cms-marko-web-inquiry');
 const htmlSitemapPagination = require('@parameter1/base-cms-marko-web-html-sitemap/middleware/paginated');
+const contentGating = require('@parameter1/base-cms-marko-web-theme-monorail/middleware/content-gating');
+const newsletterModalState = require('@parameter1/base-cms-marko-web-theme-monorail/middleware/newsletter-modal-state');
+const MindfulMarkoWebService = require('@parameter1/base-cms-mindful/marko-web/middleware/service');
 
 const document = require('./components/document');
 const components = require('./components');
@@ -41,6 +44,9 @@ module.exports = (options = {}) => {
       if (typeof onStart === 'function') await onStart(app);
       app.set('trust proxy', 'loopback, linklocal, uniquelocal');
 
+      const { namespace } = getAsObject(options, 'siteConfig.mindful');
+      app.use(MindfulMarkoWebService({ namespace }));
+
       // Use paginated middleware
       app.use(paginated());
 
@@ -50,6 +56,12 @@ module.exports = (options = {}) => {
 
       // Use paginated middleware
       app.use(htmlSitemapPagination());
+
+      // Use newsletterModalState middleware
+      app.use(newsletterModalState());
+
+      // Install custom content gating middleware
+      contentGating(app);
 
       // Setup GAM.
       const gamConfig = get(options, 'siteConfig.gam');

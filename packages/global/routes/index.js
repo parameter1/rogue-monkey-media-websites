@@ -1,9 +1,10 @@
 const htmlSitemap = require('@parameter1/base-cms-marko-web-html-sitemap/routes');
 const renderBlock = require('@parameter1/base-cms-marko-web-theme-monorail/routes/render-block');
 const search = require('@parameter1/base-cms-marko-web-theme-monorail/routes/search');
+const getAdvertisingPostAsNativeStory = require('@parameter1/base-cms-mindful/marko-web/middleware/get-advertising-post-as-native-story');
+const advertisingPostTemplate = require('../templates/content/advertising-post');
 const identityX = require('./identity-x');
 const magazine = require('./magazine');
-const nativeX = require('./native-x');
 const printContent = require('./print-content');
 const publicFiles = require('./public-files');
 const redirects = require('./redirects');
@@ -15,8 +16,12 @@ module.exports = (app, siteConfig) => {
   // Magazine Routes
   magazine(app);
 
-  // NativeX (Story rendering)
-  nativeX(app);
+  // Mindful|NativeX (Story rendering)
+  getAdvertisingPostAsNativeStory(app, {
+    route: '/sponsored/:section/:slug/:id',
+    tenant: 'roguemonkeymedia',
+    template: advertisingPostTemplate,
+  });
 
   // Shared Print Content
   printContent(app);

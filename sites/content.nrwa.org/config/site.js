@@ -2,6 +2,7 @@ const navigation = require('./navigation');
 const gam = require('./gam');
 const nativeX = require('./native-x');
 const identityX = require('./identity-x');
+const newsletter = require('./newsletter');
 const search = require('./search');
 const subscribe = require('./subscribe');
 
@@ -11,10 +12,14 @@ module.exports = {
   gam,
   nativeX,
   identityX,
+  newsletter,
   search,
   subscribe,
   company: 'Rogue Monkey Media, LLC',
   publicationIds: [],
+  mindful: {
+    namespace: 'rmm/default',
+  },
   p1events: {
     tenant: 'roguemonkey',
     enabled: true,

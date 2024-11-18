@@ -5,11 +5,13 @@ module.exports = ({
   appId,
   apiToken = process.env.IDENTITYX_API_TOKEN,
   requiredServerFields,
+  forms = [],
 } = {}) => {
   const config = new IdentityXConfiguration({
     appId,
     apiToken,
     requiredServerFields,
+    forms,
     onHookError: newrelic.noticeError.bind(newrelic),
   });
   return config;

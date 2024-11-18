@@ -1,11 +1,11 @@
 import convert from "@parameter1/base-cms-marko-web-native-x/utils/convert-story-to-content";
 
 $ const { story } = input;
-$ const content = convert(story);
+$ const content = convert(story, { sectionName: "Sponsored" });
 $ const { id, type } = content;
 $ const { primarySection } = content;
 
-<theme-default-page title=story.title description=story.teaser>
+<theme-default-page title=story.title description=story.teaser canonical-url=story.url>
   <@head>
     <marko-web-native-x-gtm-init />
     <marko-web-p1-events-track-native-story story=story />
