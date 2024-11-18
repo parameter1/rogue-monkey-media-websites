@@ -17,6 +17,9 @@ module.exports = {
   subscribe,
   company: 'Rogue Monkey Media, LLC',
   publicationIds: [],
+  mindful: {
+    namespace: 'rmm/default',
+  },
   p1events: {
     tenant: 'roguemonkey',
     enabled: true,
