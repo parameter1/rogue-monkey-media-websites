@@ -1,3 +1,4 @@
+const contentMeter = require('@rogue-monkey-media/package-global/config/content-meter');
 const navigation = require('./navigation');
 const gam = require('./gam');
 const nativeX = require('./native-x');
@@ -7,6 +8,7 @@ const search = require('./search');
 const subscribe = require('./subscribe');
 
 module.exports = {
+  contentMeter,
   useLinkInjectedBody: process.env.USE_LINK_INJECTED_BODY || false,
   navigation,
   gam,
